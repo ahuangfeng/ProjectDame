@@ -17,7 +17,7 @@ public class Dame extends Pion {
 	
 	public boolean peutBouger() {
 		//modifier
-                //hola que tal
+                //hola 
 	}
 	
 	public boolean peutManger(){
