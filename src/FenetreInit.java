@@ -78,8 +78,6 @@ public class FenetreInit extends JFrame{
         
     }
     
-    public static void main (String args[]){
-        FenetreInit finestra = new FenetreInit();
-    }
+    
 }
 
