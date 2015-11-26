@@ -14,8 +14,9 @@ public class Case {
         private int ligne;
         private int colonne;
         private boolean presence;
+        private int color; // voir comment faire pour les couleurs!
 
-        public Case(int ligne,int colonne, boolean presence) {
+        public Case(int ligne,int colonne, boolean presence, int color) {
                 this.ligne=ligne;
                 this.colonne=colonne;
                 this.presence=presence;
