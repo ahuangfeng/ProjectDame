@@ -12,7 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FenetreInit extends JFrame{
-    
+    //hola
     private JLabel titre = new JLabel("JEU DE DAME");
     private JLabel joueur1 = new JLabel("Joueur 1 ");
     private JLabel joueur2 = new JLabel("Joueur 2 ");
