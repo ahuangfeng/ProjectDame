@@ -14,7 +14,9 @@ public class Lanceur {
      * @param args the command line arguments
      */
     public static void main (String args[]){
-        FenetreInit finestra = new FenetreInit();
+        //FenetreInit finestra = new FenetreInit();
+        Plateau plat = new Plateau();
+        System.out.println(plat.toString());
     }
     
 }
