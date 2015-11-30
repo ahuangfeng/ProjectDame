@@ -17,7 +17,9 @@ public class Partie {
 	public Partie(Joueur jug1,Joueur jug2){
 		this.joueur1=jug1;
 		this.joueur2=jug2;
+                Plateau plat = new Plateau();
 	}
+        
 	
 	
 }
