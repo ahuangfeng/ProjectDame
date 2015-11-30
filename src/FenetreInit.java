@@ -33,7 +33,6 @@ public class FenetreInit extends JFrame{
     public FenetreInit(){
         super("Jeu de dame");
 
-		JLabel vide = new JLabel(" ");
         
         JPanel cadre = new JPanel(new BorderLayout());
         JPanel tete = new JPanel(new FlowLayout());
@@ -53,6 +52,7 @@ public class FenetreInit extends JFrame{
         ligne2.add(this.nom2); 
         ligne2.add(this.age2);
         ligne2.add(this.textAge2);
+        
          
         tete.add(this.titre);
         grid.add(tete);
