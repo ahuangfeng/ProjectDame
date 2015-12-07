@@ -9,35 +9,26 @@
  * @author AlexHF
  */
 
-public class Case {
+import java.awt.*;
+import javax.swing.JPanel;
+public class Case extends JPanel {
 	
-        private int ligne;
-        private int colonne;
-        private boolean presence;
-        private int color; // voir comment faire pour les couleurs!
-
-        public Case(int ligne, int colonne, boolean presence, int color) {
-                this.ligne=ligne;
-                this.colonne=colonne;
-                this.presence=presence;
-                this.color=color;
-        }
-
-        public int getLigne(){
-                return this.ligne;
-        }
-
-        public int getColonne(){
-                return this.colonne;
-        }
-
-        public void setPresence(boolean pre){
-                this.presence=pre;
-        }
-        
-        public String toString(){
-            String res="";
-            res=res+this.color;
-            return res;
-        }
+	private int couleur;
+	private boolean selectionnee;
+	
+	public Case(int u){
+		setLayout(new GridLayout(1,0));
+		this.couleur=u;
+		if(u==0){
+			setBackground(Color.DARK_GRAY);
+		}else if(u==1){
+			setBackground(Color.WHITE);
+		}
+		
+	}
+	
+	
+	
+	
 }
+
