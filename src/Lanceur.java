@@ -17,6 +17,7 @@ public class Lanceur {
         //FenetreInit finestra = new FenetreInit();
         Plateau plat = new Plateau();
         System.out.println(plat.toString());
+        //FenetreFin ola = new FenetreFin();
     }
     
 }
