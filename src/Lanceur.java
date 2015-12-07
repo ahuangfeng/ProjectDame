@@ -14,10 +14,10 @@ public class Lanceur {
      * @param args the command line arguments
      */
     public static void main (String args[]){
-        //FenetreInit finestra = new FenetreInit();
+        FenetreInit finestra = new FenetreInit();
         maFenetreScore esc = new maFenetreScore();
         
-        //FenetreFin ola = new FenetreFin();
+        FenetreFin ola = new FenetreFin();
     }
     
 }
