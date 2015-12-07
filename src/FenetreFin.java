@@ -31,7 +31,7 @@ import java.awt.*;
 
 	
 	
-	public maPremiereFenetre(){
+	public FenetreFin(){
 		super("Fin de la Partie");
 		
 		etiquette = new JLabel("FELICATIONS !!! ");
@@ -104,8 +104,8 @@ import java.awt.*;
                 setVisible(true);
 	}
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
         new FenetreFin();
-    }
+    }*/
 }
 	
