@@ -30,9 +30,14 @@ public class FenetreInit extends JFrame{
     private JButton commencer = new JButton("Commence le jeu");
     private JLabel phrase = new JLabel("Info : le joueur le plus jeune commencera la partie ");
     
+    private EcouteurBoutonRegle ecouteurBtnRegle;
+    
     public FenetreInit(){
         super("Jeu de dame");
 
+
+		ecouteurBtnRegle = new EcouteurBoutonRegle(this);
+		regles.addActionListener(ecouteurBtnRegle);
         
         JPanel cadre = new JPanel(new BorderLayout());
         JPanel tete = new JPanel(new FlowLayout());

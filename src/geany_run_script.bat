@@ -1,4 +1,4 @@
-java "FenetreFin"
+java "FenetreInit"
 
 pause
 del "%0"
