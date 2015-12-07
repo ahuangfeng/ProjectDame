@@ -44,12 +44,12 @@ public class maFenetreScore extends JFrame{
 		
 		phraseNbPartiJ1 = new JLabel("Joueur1+ a gagne + *** + partie(s)");
 		phraseNbPartiJ2 = new JLabel("Joueur2+ a gagne + *** + partie(s)");
-		Tiempo temp = new Tiempo();
+		/*Tiempo temp = new Tiempo();
 		temp.Contar();
 		temp.run();
 		//tempsEcoule = new JLabel("temps ecoule : " + Integer.parseInt((temp.run()).getText()));
 		tempsEcoule = new JLabel("temps ecoule : " +temp.getSegundos());
-		
+		*/
 		vide = new JLabel("");
 		
 		monPanelAffichageDonnees.add(nomJoueurUn);
@@ -68,11 +68,12 @@ public class maFenetreScore extends JFrame{
 		monPanelAffichageDonnees.add(phraseNbPartiJ2);
 		monPanelAffichageDonnees.add(vide);
 		monPanelAffichageDonnees.add(vide);
-		monPanelAffichageDonnees.add(tempsEcoule);
+		//monPanelAffichageDonnees.add(tempsEcoule);
 		
-		PanelGlobalScore.add(monPanelAffichageDonnees, BorderLayout.CENTER);
-		PanelGlobalScore.add(tempsEcoule, BorderLayout.SOUTH);
-		
+		PanelGlobalScore.add(monPanelAffichageDonnees, BorderLayout.EAST);
+		//PanelGlobalScore.add(tempsEcoule, BorderLayout.SOUTH);
+		Plateau plat = new Plateau();
+                PanelGlobalScore.add(plat,BorderLayout.CENTER);
 		
 		
 		setContentPane(PanelGlobalScore);
