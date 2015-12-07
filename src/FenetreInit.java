@@ -18,15 +18,15 @@ public class FenetreInit extends JFrame{
     private JLabel joueur2 = new JLabel("Joueur 2 ");
     private JLabel pseudo = new JLabel("Pseudo : ");
     private JLabel pseudo2 = new JLabel("Pseudo : ");
-    private JLabel age1 = new JLabel("âge");
-    private JLabel age2 = new JLabel("âge");
+    private JLabel age1 = new JLabel("age");
+    private JLabel age2 = new JLabel("age");
     private JTextField nom = new JTextField(5);
     private JTextField nom2 = new JTextField(5);
     private JTextField textAge1 = new JTextField(5);
     private JTextField textAge2 = new JTextField(5);
     private String[] options = {"Blanc","Noir"};
     private JComboBox liste=new JComboBox(options);
-    private JButton regles = new JButton("Règle du jeu");
+    private JButton regles = new JButton("Regle du jeu");
     private JButton commencer = new JButton("Commence le jeu");
     private JLabel phrase = new JLabel("Info : le joueur le plus jeune commencera la partie ");
     
