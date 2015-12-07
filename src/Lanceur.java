@@ -15,8 +15,8 @@ public class Lanceur {
      */
     public static void main (String args[]){
         //FenetreInit finestra = new FenetreInit();
-        Plateau plat = new Plateau();
-        System.out.println(plat.toString());
+        maFenetreScore esc = new maFenetreScore();
+        
         //FenetreFin ola = new FenetreFin();
     }
     
