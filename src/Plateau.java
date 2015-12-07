@@ -17,8 +17,6 @@ import javax.swing.*;
 
 public class Plateau extends JPanel{
 	
-	
-	
 	public Plateau() {
 		setLayout(new GridLayout(10,10));
 		for(int i=0; i<10; i++){
