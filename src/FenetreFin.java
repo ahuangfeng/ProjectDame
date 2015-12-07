@@ -28,6 +28,7 @@ import java.awt.*;
 		private JPanel vide2;
 		private JPanel vide3;
 		
+		private EcouteurBoutonFerme EcouteurBtnClose;
 
 	
 	
@@ -96,6 +97,10 @@ import java.awt.*;
 		cadrePrincipal.add(vide3);
 		
 		
+		EcouteurBtnClose = new EcouteurBoutonFerme(this);
+		
+		quitter.addActionListener(EcouteurBtnClose);
+		
 		//quitter.addActionListener(new EcouteurQuitter(this));
 		
 		setContentPane(cadrePrincipal);
@@ -104,8 +109,7 @@ import java.awt.*;
                 setVisible(true);
 	}
 	
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
         new FenetreFin();
-    }*/
+    }
 }
-	

@@ -1,0 +1,12 @@
+import javax.swing.*;
+import java.awt.*;
+import java.util.LinkedList;
+
+
+public class maFenetreScore extends JFrame{
+
+	private JLabel nomJoueurUn;
+	private JLabel nomJoueurDeux;
+
+
+}
