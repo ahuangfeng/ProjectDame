@@ -36,8 +36,4 @@ public class Plateau extends JPanel{
 		add(case1);
 	}
 	
-	public static void main (String args[]){
-		Plateau o = new Plateau();
-		
-	}
 }
