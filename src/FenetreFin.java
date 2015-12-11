@@ -29,6 +29,8 @@ import java.awt.*;
 		private JPanel vide3;
 		
 		private EcouteurBoutonFerme EcouteurBtnClose;
+		private EcouteurBoutonNouvellePartie EcouteurBtnNewPartie;
+		private EcouteurBoutonRejouer EcouteurBtnRejouer;
 
 	
 	
@@ -98,8 +100,12 @@ import java.awt.*;
 		
 		
 		EcouteurBtnClose = new EcouteurBoutonFerme(this);
+		EcouteurBtnNewPartie = new EcouteurBoutonNouvellePartie(this);
+		EcouteurBtnRejouer = new EcouteurBoutonRejouer(this);
 		
 		quitter.addActionListener(EcouteurBtnClose);
+		boutonRejouer.addActionListener(EcouteurBtnRejouer);
+		boutonNouvellePartie.addActionListener(EcouteurBtnNewPartie);
 		
 		//quitter.addActionListener(new EcouteurQuitter(this));
 		

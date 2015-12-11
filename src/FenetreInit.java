@@ -83,6 +83,28 @@ public class FenetreInit extends JFrame{
         
     }
     
+    
+	public String getSaisieNom1(){
+		return (nom.getText());
+	}
+	
+	public String getSaisieNom2(){
+		return (nom2.getText());
+	}
+
+	public String getSaisieAge1(){
+		return (textAge1.getText());
+	}
+	
+	public String getSaisieAge2(){
+		return (textAge2.getText());
+	}
+	
+	public int getSelectedIndex() {
+        return liste.getSelectedIndex();
+    }
+
+  
    public static void main(String[] args) {
         new FenetreInit();
     }
