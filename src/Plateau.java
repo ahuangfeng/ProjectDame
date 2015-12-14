@@ -14,11 +14,11 @@ import javax.swing.*;
  */
 
 public class Plateau extends JPanel{
-	
+	private int Taille=11;
 	public Plateau() {
-		setLayout(new GridLayout(10,10));
-		for(int i=0; i<10; i++){
-                    for(int j=0; j<10; j++){
+            setLayout(new GridLayout(this.Taille,this.Taille));
+		for(int i=0; i<this.Taille; i++){
+                    for(int j=0; j<this.Taille; j++){
                         if((j%2==0 && i%2==0) || (j%2!=0 && i%2!=0)){
                             ajouterCase(0);
                         }
@@ -41,8 +41,9 @@ public class Plateau extends JPanel{
         }
         
         public void initialiser(){
-            for(int i=0;i<30;i=i+2){
+            for(int i=0;i<this.Taille*4;i=i+2){
                 getCase(i).add(creerPion(0));
+                getCase(this.Taille*this.Taille-i-1).add(creerPion(1));
             }
         }
         public Case getCase(int i){
