@@ -1,12 +1,4 @@
-import java.awt.*;
-import javax.swing.JPanel;
-
-public class Case extends JPanel {
-	
-	private int couleur;
-	private boolean choisie;
-	
-	public Case(int u){
+public Case(int u){
 		setLayout(new GridLayout(1,0));
 		this.couleur=u;
 		if(u==0){
@@ -19,6 +11,15 @@ public class Case extends JPanel {
 	public boolean estChoisie(){
 		return choisie;
 	}
+	
+	public void setChoisie(boolean choisie){
+		this.choisie=choisie;
+	}
+	
+	
+	
+	
+}
 	
 
 
