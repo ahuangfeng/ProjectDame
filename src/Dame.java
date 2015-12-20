@@ -1,27 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.awt.Color;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Paint;
+import javax.swing.JPanel;
 
-/**
- *
- * @author AlexHF
- */
 public class Dame extends Pion {
-	private Pion p;
 	
-	public Dame(Pion pion){
-		super(pion.getJoueur(),pion.getPositionX(),pion.getPositionY(),pion.getCouleur());
+	
+	
+	public Dame(int couleur, boolean monte){
+		super(couleur,monte);
+				
+	    if(couleur==0){
+			setForeground(Color.YELLOW);
+			setBackground(Color.WHITE);
+		}else if(couleur==1){
+			setForeground(Color.BLACK);
+			setBackground(Color.WHITE);
+		}
+		setOpaque(false);
 	}
 	
-	public boolean peutBouger() {
-		//modifier
-	}
-	
-	public boolean peutManger(){
-		//modifier
-	}
+
 	
 	
 }
