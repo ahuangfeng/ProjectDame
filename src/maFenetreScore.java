@@ -24,7 +24,7 @@ public class maFenetreScore extends JFrame{
 	
 	public maFenetreScore(){
 		
-		
+	
             //définir la taille et la fermeture par défaut
             setSize(800,600);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
