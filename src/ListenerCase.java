@@ -19,16 +19,13 @@ public class ListenerCase implements MouseListener{
     
     }
 
-
     public void mouseEntered(MouseEvent arg0) {
         
     }
 
-
     public void mouseExited(MouseEvent arg0) {
         
     }
-
 
     public void mousePressed(MouseEvent arg0) {
         if(case1.estChoisie()){
@@ -36,9 +33,6 @@ public class ListenerCase implements MouseListener{
         }
     }
 
-
-    public void mouseReleased(MouseEvent arg0) {
-        
+    public void mouseReleased(MouseEvent arg0) { 
     }
-    
 }
