@@ -164,10 +164,10 @@ public class Plateau extends JPanel{
         if(case1==getCase(0,0)){
             if(!tour0){
                 case1.add(creerDame(0,true));
-                    caseActive.removeAll();
-                    caseActive.repaint();
-                    caseActive=null;
-                    case1.repaint();
+                caseActive.removeAll();
+                caseActive.repaint();
+                caseActive=null;
+                case1.repaint();
             }
         }
         else if(case1==getCase(0,10)||case1==getCase(1,10)||case1==getCase(2,10)||case1==getCase(3,10)||case1==getCase(4,10)||case1==getCase(5,10)||case1==getCase(6,10)||case1==getCase(7,10)||case1==getCase(8,10)||case1==getCase(9,10)||case1==getCase(10,10)){
