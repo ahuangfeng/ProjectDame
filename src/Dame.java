@@ -7,22 +7,17 @@ import javax.swing.JPanel;
 
 public class Dame extends Pion {
 	
-	
-	
-	public Dame(int couleur, boolean monte){
-		super(couleur,monte);
-				
-	    if(couleur==0){
-			setForeground(Color.YELLOW);
-			setBackground(Color.WHITE);
-		}else if(couleur==1){
-			setForeground(Color.BLACK);
-			setBackground(Color.WHITE);
-		}
-		setOpaque(false);
-	}
-	
+    public Dame(int couleur, boolean monte){
+        super(couleur,monte);
 
-	
-	
+        if(couleur==0){
+            setForeground(Color.YELLOW);
+            setBackground(Color.WHITE);
+        }else if(couleur==1){
+            setForeground(Color.BLACK);
+            setBackground(Color.WHITE);
+        }
+        setOpaque(false);
+    }
+
 }

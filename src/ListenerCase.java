@@ -31,9 +31,9 @@ public class ListenerCase implements MouseListener{
 
 
     public void mousePressed(MouseEvent arg0) {
-      if(case1.estChoisie()){
-          plateau.deplacer(case1);
-	  }
+        if(case1.estChoisie()){
+            plateau.deplacer(case1);
+        }
     }
 
 
@@ -41,6 +41,4 @@ public class ListenerCase implements MouseListener{
         
     }
     
-    
-
 }

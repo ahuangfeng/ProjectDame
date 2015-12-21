@@ -12,7 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FenetreInit extends JFrame{
-    //hola
+    
     private JLabel titre = new JLabel("JEU DE DAME");
     private JLabel joueur1 = new JLabel("Joueur 1 ");
     private JLabel joueur2 = new JLabel("Joueur 2 ");
@@ -34,10 +34,8 @@ public class FenetreInit extends JFrame{
     
     public FenetreInit(){
         super("Jeu de dame");
-
-
-		ecouteurBtnRegle = new EcouteurBoutonRegle(this);
-		regles.addActionListener(ecouteurBtnRegle);
+        ecouteurBtnRegle = new EcouteurBoutonRegle(this);
+        regles.addActionListener(ecouteurBtnRegle);
         
         JPanel cadre = new JPanel(new BorderLayout());
         JPanel tete = new JPanel(new FlowLayout());
@@ -84,28 +82,28 @@ public class FenetreInit extends JFrame{
     }
     
     
-	public String getSaisieNom1(){
-		return (nom.getText());
-	}
+    public String getSaisieNom1(){
+        return (nom.getText());
+    }
 	
-	public String getSaisieNom2(){
-		return (nom2.getText());
-	}
+    public String getSaisieNom2(){
+        return (nom2.getText());
+    }
 
-	public String getSaisieAge1(){
-		return (textAge1.getText());
-	}
+    public String getSaisieAge1(){
+        return (textAge1.getText());
+    }
 	
-	public String getSaisieAge2(){
-		return (textAge2.getText());
-	}
+    public String getSaisieAge2(){
+        return (textAge2.getText());
+    }
 	
-	public int getSelectedIndex() {
+    public int getSelectedIndex() {
         return liste.getSelectedIndex();
     }
 
   
-   public static void main(String[] args) {
+    public static void main(String[] args) {
         new FenetreInit();
     }
     

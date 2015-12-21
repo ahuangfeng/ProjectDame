@@ -4,14 +4,14 @@ import java.awt.event.*;
 
 public class EcouteurBoutonRegle implements ActionListener {
 	
-	private FenetreInit fen;
-	
-	public EcouteurBoutonRegle(FenetreInit fen) {
-		this.fen =fen;
-	}
+    private FenetreInit fen;
 
-	public void actionPerformed(ActionEvent ae){
-		new FenetreRegleJeu();
-	}
+    public EcouteurBoutonRegle(FenetreInit fen) {
+        this.fen =fen;
+    }
+
+    public void actionPerformed(ActionEvent ae){
+        new FenetreRegleJeu();
+    }
 	
 }

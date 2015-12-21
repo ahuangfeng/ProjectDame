@@ -10,28 +10,28 @@
  */
 public class Joueur {
 	
-	private String nom;
-	private int age;
-	private int couleur;
+    private String nom;
+    private int age;
+    private int couleur;
 	
 	
-	public Joueur(String nom, int age, int couleur){
-		this.nom=nom;
-		this.age=age;
-		this.couleur=couleur;
-	}
+    public Joueur(String nom, int age, int couleur){
+        this.nom=nom;
+        this.age=age;
+        this.couleur=couleur;
+    }
 	
-	public String getNom(){
-		return this.nom;
-	}
+    public String getNom(){
+        return this.nom;
+    }
 	
-	public int getAge(){
-		return this.age;
-	}
-	
-	public int getCouleur(){
-		return this.couleur;
-	}
+    public int getAge(){
+        return this.age;
+    }
+
+    public int getCouleur(){
+        return this.couleur;
+    }
 }
 
 
