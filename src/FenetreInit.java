@@ -101,11 +101,5 @@ public class FenetreInit extends JFrame{
     public int getSelectedIndex() {
         return liste.getSelectedIndex();
     }
-
-  
-    public static void main(String[] args) {
-        new FenetreInit();
-    }
-    
 }
 

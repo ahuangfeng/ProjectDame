@@ -9,13 +9,10 @@ import javax.swing.JPanel;
 
 public class Plateau extends JPanel{
     private int Taille=11;
-
     private Case caseActive;
-
-
     private boolean tour0;
 
-//	private boolean deplacementAutorise;
+//private boolean deplacementAutorise;
 
     public Plateau() {
         tour0 =false;
@@ -42,7 +39,7 @@ public class Plateau extends JPanel{
         Pion pion = new Pion(couleur,monte);
         pion.addMouseListener(new ListenerPion(pion, this));
         return pion;
-        }
+    }
         
     public void initialiser(){
         for(int i=0;i<this.Taille*4;i=i+2){
@@ -59,7 +56,7 @@ public class Plateau extends JPanel{
         return (Case) getComponent(j+i*Taille);
     }
     
-	   //permet d'avoir la case sur lequel le pion a été sélectionné
+    //permet d'avoir la case sur lequel le pion a été sélectionné
     public void affichePossibilitesPion(Pion p){
         int a=0;
         int b=0;
@@ -104,32 +101,31 @@ public class Plateau extends JPanel{
 		
     public void caseAutorise(int i, int j, int couleur){
         Pion pion = (Pion)(getCase(i, j).getComponent(0));
-            if(pion.isMonte()){
-                //pour les pions du haut
-                //verifie que pion n'est pas bord gauche et pas dernière ligne + case vide
-                if(i-1>=0 && j+1<Taille && getCase(i-1, j+1).getComponentCount()==0){
-                    getCase(i-1, j+1).setChoisie(true);
+        if(pion.isMonte()){
+            //pour les pions du haut
+            //verifie que pion n'est pas bord gauche et pas dernière ligne + case vide
+            if(i-1>=0 && j+1<Taille && getCase(i-1, j+1).getComponentCount()==0){
+                getCase(i-1, j+1).setChoisie(true);
+            }
+            // vérifie si peut sauter un pion(Case vide)
+            else if((i-2>=0) && (j+2<Taille) && (getCase(i-2, j+2).getComponentCount()==0)){
+                //vérie si pion sauté est de couleur différente
+                if(!(((Pion)(getCase(i-1, j+1).getComponent(0))).getCouleur()==(couleur))){
+                    getCase(i-2, j+2).setChoisie(true);
                 }
-                // vérifie si peut sauter un pion(Case vide)
-                else if((i-2>=0) && (j+2<Taille) && (getCase(i-2, j+2).getComponentCount()==0)){
-                    //vérie si pion sauté est de couleur différente
-                    if(!(((Pion)(getCase(i-1, j+1).getComponent(0))).getCouleur()==(couleur))){
-                        getCase(i-2, j+2).setChoisie(true);
-                    }
+            }
+            //pour les pions du bas
+
+            //vérifie si case vide en diagonale
+            if(i-1>=0 && j-1>=0 && getCase(i-1, j-1).getComponentCount()==0){
+                getCase(i-1, j-1).setChoisie(true);
+            }
+            else if(i-2>=0 && j-2>=0 && getCase(i-2, j-2).getComponentCount()==0){
+                if(!(((Pion)(getCase(i-1, j-1).getComponent(0))).getCouleur()==(couleur))){
+                    getCase(i-2, j-2).setChoisie(true);
                 }
-                //pour les pions du bas
-            
-                //vérifie si case vide en diagonale
-                if(i-1>=0 && j-1>=0 && getCase(i-1, j-1).getComponentCount()==0){
-                    getCase(i-1, j-1).setChoisie(true);
-                }
-                else if(i-2>=0 && j-2>=0 && getCase(i-2, j-2).getComponentCount()==0){
-                    if(!(((Pion)(getCase(i-1, j-1).getComponent(0))).getCouleur()==(couleur))){
-                        getCase(i-2, j-2).setChoisie(true);
-                    }
-                }
-           
-            }else{
+            }
+        }else{
                 //pions du haut
                 //verifie si case vide diagonale droite
                 if(i+1<Taille && j+1<Taille && getCase(i+1, j+1).getComponentCount()==0){
