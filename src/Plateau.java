@@ -11,10 +11,14 @@ public class Plateau extends JPanel{
     private int Taille=11;
     private Case caseActive;
     private boolean tour0;
+    private int nbPionsSautes;
+    private maFenetreScore mfs;
 
 //private boolean deplacementAutorise;
 
     public Plateau() {
+		mfs = new maFenetreScore();
+		
         tour0 =false;
         setLayout(new GridLayout(this.Taille,this.Taille));
         for(int i=0; i<this.Taille; i++){
@@ -159,6 +163,7 @@ public class Plateau extends JPanel{
 		
 		
     public void deplacer(Case case1){
+		int nbPionsSautes= 0;
         //permet de placer le pion dans la case sélectionné
         //Création de la dame si le pion se place sur la dernière ligne
         if(case1==getCase(0,0)){
@@ -189,6 +194,12 @@ public class Plateau extends JPanel{
                 getCase(i, j).removeAll();
                 getCase(i, j).validate();
                 getCase(i, j).repaint();
+                nbPionsSautes++;
+                //maFenetreScore maFenSc = new maFenetreScore();
+                
+				mfs.monPanelAffichageDonnees.removeAll();
+				mfs.monPanelAffichageDonnees.repaint();
+		
             }
 
             for(int k=0; k<Taille*Taille; k++){
@@ -199,14 +210,23 @@ public class Plateau extends JPanel{
             caseActive.repaint();
             caseActive=null;
             case1.repaint();
+            //
+            nbPionsSautes++;
+            //
 
             if(getLigne(case1)==0){
                 Pion p=(Pion)(case1.getComponent(0));
                 p.setMonte(false);
+                //
+                nbPionsSautes++;
+                //
             }
             if(getLigne(case1)==Taille-1){
                 Pion p=(Pion)(case1.getComponent(0));
                 p.setMonte(true);
+                //
+                nbPionsSautes++;
+                //
             }
         }
     }
@@ -230,5 +250,8 @@ public class Plateau extends JPanel{
         }
         return res;
     }
-	
+    
+	public int getNbPionsSautes(){
+		return nbPionsSautes;
+	}
 }

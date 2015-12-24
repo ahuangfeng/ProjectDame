@@ -18,9 +18,10 @@ public class maFenetreScore extends JFrame{
     private JLabel tempsEcoule;
     private JLabel vide;
 	
-    private JPanel monPanelAffichageDonnees;
+    public JPanel monPanelAffichageDonnees;
     private JPanel PanelGlobalScore;
 	
+	public static int nbPionAvalesJ1;
 	
     public maFenetreScore(){
 		
@@ -32,14 +33,27 @@ public class maFenetreScore extends JFrame{
         monPanelAffichageDonnees = new JPanel(new GridLayout(17,1));
         PanelGlobalScore = new JPanel(new BorderLayout());
 
+		//Plateau plat = new Plateau();
+        //plat.initialiser();
+        //PanelGlobalScore.add(plat,BorderLayout.CENTER);
+
+
         nomJoueurUn = new JLabel("*Joueur 1*");
         //a modifier avec la classe joueur
-        nbPionsMangesJ1 = new JLabel("      nombre de pions manges : + ***");
+        
+        //int a = nbPionAvalesJ1 + plat.getNbPionsSautes();
+        
+        /*if(plat.getNbPionsSautes()!=0){
+			monPanelAffichageDonnees.removeAll();
+			monPanelAffichageDonnees.repaint();
+		}*/
+        
+        nbPionsMangesJ1 = new JLabel("      nombre de pions manges : + *** " );
         nbPionsRestantsJ1 = new JLabel("      nombre de pions restants : + *** ");
 
         nomJoueurDeux = new JLabel("*Joueur 2*");
         //a modifier avec la classe joueur
-        nbPionsMangesJ2 = new JLabel("      nombre de pions manges : + *** ");
+        nbPionsMangesJ2 = new JLabel("      nombre de pions manges : + *****" );
         nbPionsRestantsJ2 = new JLabel("      nombre de pions restants : + *** ");
 
         phraseNbPartiJ1 = new JLabel("Joueur1+ a gagne + *** + partie(s)");
@@ -72,9 +86,7 @@ public class maFenetreScore extends JFrame{
 
         PanelGlobalScore.add(monPanelAffichageDonnees, BorderLayout.EAST);
         //PanelGlobalScore.add(tempsEcoule, BorderLayout.SOUTH);
-        Plateau plat = new Plateau();
-        plat.initialiser();
-        PanelGlobalScore.add(plat,BorderLayout.CENTER);
+       
 
 
         setContentPane(PanelGlobalScore);

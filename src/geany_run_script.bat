@@ -1,4 +1,4 @@
-java "FenetreInit"
+java "TestLanceur"
 
 pause
 del "%0"
