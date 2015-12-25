@@ -81,16 +81,28 @@ public class Plateau extends JPanel{
     }
 		
 		
-        
+	//test si il rest des pions :
+	public boolean testRestePion(){
+		boolean res = false;
+	   for(int i = 0; i < Taille; i++){
+			for(int j=0; j < Taille; j++){
+				//Teste si la case contient un pion et permet d'obtenir la case du pion sélectionné
+				if(this.testPresencePion(i,j)){
+					res = true;
+				}
+			}	
+       }
+       return res;
+	}
     
-    /*
+    
     public boolean testPresencePion(int i, int j){
         boolean res= false;
         if(getCase(i,j).getComponentCount()!=0){
             res= true;			
         }
         return res;
-    }*/
+    }
 		
     /*permet de savoir le numéro de la case sur lequel le pion sélectionné se trouve
     public int getPositionPion(Pion p){
