@@ -7,6 +7,7 @@ import java.util.TimerTask;
 
 public class maFenetreScore extends JFrame{
 
+	
     private JLabel nomJoueurUn;
     private JLabel nomJoueurDeux;
     private JLabel nbPionsMangesJ1;
@@ -94,6 +95,10 @@ public class maFenetreScore extends JFrame{
         //rendre la fenêtre visible
         setVisible(true);
     }
+    
+    public JPanel getPanelScore(){
+		return this.PanelGlobalScore;
+	}
 
 //losange vide : pas de forte dependance
 //losange plein : forte dependance entre le compose et le composant 

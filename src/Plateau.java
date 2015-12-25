@@ -17,7 +17,7 @@ public class Plateau extends JPanel{
 //private boolean deplacementAutorise;
 
     public Plateau() {
-		mfs = new maFenetreScore();
+		//mfs = new maFenetreScore();
 		
         tour0 =false;
         setLayout(new GridLayout(this.Taille,this.Taille));
@@ -31,6 +31,7 @@ public class Plateau extends JPanel{
                 }
             }
         }
+        
     }
 	
     public void ajouterCase(int o){

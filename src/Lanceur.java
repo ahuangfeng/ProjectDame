@@ -28,9 +28,11 @@ public class Lanceur extends JFrame{
         setSize(800,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Plateau plat = new Plateau();
+        maFenetreScore maFS = new maFenetreScore();
         plat.initialiser();
         PanelGlobalScore = new JPanel(new BorderLayout());
         PanelGlobalScore.add(plat,BorderLayout.CENTER);
+        PanelGlobalScore.add((maFS.getPanelScore()),BorderLayout.EAST);
         setContentPane(PanelGlobalScore);
         setVisible(true);
     }    
