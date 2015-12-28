@@ -14,10 +14,10 @@ public class Plateau extends JPanel{
     private static int nbPionsSautes=0;
     //private maFenetreScore mfs;
 
-//private boolean deplacementAutorise;
+    //private boolean deplacementAutorise;
 
     public Plateau() {
-		//mfs = new maFenetreScore();
+        //mfs = new maFenetreScore();
 		
         tour0 =false;
         setLayout(new GridLayout(this.Taille,this.Taille));
@@ -83,17 +83,17 @@ public class Plateau extends JPanel{
 		
 	//test si il rest des pions :
 	public boolean testRestePion(){
-		boolean res = false;
-	   for(int i = 0; i < Taille; i++){
-			for(int j=0; j < Taille; j++){
-				//Teste si la case contient un pion et permet d'obtenir la case du pion sélectionné
-				if(this.testPresencePion(i,j)){
-					res = true;
-				}
-			}	
-       }
-       return res;
-	}
+            boolean res = false;
+            for(int i = 0; i < Taille; i++){
+                for(int j=0; j < Taille; j++){
+                    //Teste si la case contient un pion et permet d'obtenir la case du pion sélectionné
+                    if(this.testPresencePion(i,j)){
+                        res = true;
+                    }
+                }	
+        }
+        return res;
+        }
     
     
     public boolean testPresencePion(int i, int j){

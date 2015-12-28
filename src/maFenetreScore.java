@@ -22,10 +22,9 @@ public class maFenetreScore extends JFrame{
     public JPanel monPanelAffichageDonnees;
     private JPanel PanelGlobalScore;
 	
-	public static int nbPionAvalesJ1;
+    public static int nbPionAvalesJ1;
 	
     public maFenetreScore(){
-		
 	
         //définir la taille et la fermeture par défaut
         setSize(800,600);
@@ -34,7 +33,7 @@ public class maFenetreScore extends JFrame{
         monPanelAffichageDonnees = new JPanel(new GridLayout(17,1));
         PanelGlobalScore = new JPanel(new BorderLayout());
 
-		//Plateau plat = new Plateau();
+        //Plateau plat = new Plateau();
         //plat.initialiser();
         //PanelGlobalScore.add(plat,BorderLayout.CENTER);
 
@@ -45,9 +44,9 @@ public class maFenetreScore extends JFrame{
         //int a = nbPionAvalesJ1 + plat.getNbPionsSautes();
         
         /*if(plat.getNbPionsSautes()!=0){
-			monPanelAffichageDonnees.removeAll();
-			monPanelAffichageDonnees.repaint();
-		}*/
+            monPanelAffichageDonnees.removeAll();
+            monPanelAffichageDonnees.repaint();
+        }*/
         
         nbPionsMangesJ1 = new JLabel("      nombre de pions manges : + *** " );
         nbPionsRestantsJ1 = new JLabel("      nombre de pions restants : + *** ");
@@ -97,8 +96,8 @@ public class maFenetreScore extends JFrame{
     }
     
     public JPanel getPanelScore(){
-		return this.PanelGlobalScore;
-	}
+        return this.PanelGlobalScore;
+    }
 
 //losange vide : pas de forte dependance
 //losange plein : forte dependance entre le compose et le composant 

@@ -24,7 +24,7 @@ public class Lanceur extends JFrame{
     private JPanel PanelGlobalScore;
     
        
-     public Lanceur(){   
+    public Lanceur(){   
         setSize(800,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Plateau plat = new Plateau();
