@@ -24,7 +24,7 @@ public class maFenetreScore extends JFrame{
 	
     public static int nbPionAvalesJ1;
 	
-    public maFenetreScore(){
+    public maFenetreScore(String nom1, String nom2){
 	
         //définir la taille et la fermeture par défaut
         setSize(800,600);
@@ -38,7 +38,7 @@ public class maFenetreScore extends JFrame{
         PanelGlobalScore.add(plat,BorderLayout.CENTER);
 
 
-        nomJoueurUn = new JLabel("*Joueur 1*");
+        nomJoueurUn = new JLabel("      "+nom1);
         //a modifier avec la classe joueur
         
         //int a = nbPionAvalesJ1 + plat.getNbPionsSautes();
@@ -51,13 +51,13 @@ public class maFenetreScore extends JFrame{
         nbPionsMangesJ1 = new JLabel("      nombre de pions manges : + *** " );
         nbPionsRestantsJ1 = new JLabel("      nombre de pions restants : + *** ");
 
-        nomJoueurDeux = new JLabel("*Joueur 2*");
+        nomJoueurDeux = new JLabel("      "+nom2);
         //a modifier avec la classe joueur
         nbPionsMangesJ2 = new JLabel("      nombre de pions manges : + *****" );
         nbPionsRestantsJ2 = new JLabel("      nombre de pions restants : + *** ");
 
-        phraseNbPartiJ1 = new JLabel("Joueur1+ a gagne + *** + partie(s)");
-        phraseNbPartiJ2 = new JLabel("Joueur2+ a gagne + *** + partie(s)");
+        phraseNbPartiJ1 = new JLabel(nom1+" a gagne + *** + partie(s)");
+        phraseNbPartiJ2 = new JLabel(nom2+" a gagne + *** + partie(s)");
         /*Tiempo temp = new Tiempo();
         temp.Contar();
         temp.run();

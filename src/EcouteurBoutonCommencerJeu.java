@@ -11,7 +11,7 @@ public class EcouteurBoutonCommencerJeu implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae){
-        new maFenetreScore();
+        new maFenetreScore(this.fen.getSaisieNom1(),this.fen.getSaisieNom2());
     }
 	
 }
