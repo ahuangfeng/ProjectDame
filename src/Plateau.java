@@ -8,7 +8,7 @@ import java.awt.Paint;
 import javax.swing.JPanel;
 
 public class Plateau extends JPanel{
-    private int Taille=11;
+    private final int Taille=11;
     private Case caseActive;
     private boolean tour0;
     private static int nbPionsSautes=0;
@@ -58,6 +58,7 @@ public class Plateau extends JPanel{
     }
         
     public Case getCase(int i, int j){
+        //i=ligne,j=colonne
         return (Case) getComponent(j+i*Taille);
     }
     
@@ -81,19 +82,19 @@ public class Plateau extends JPanel{
     }
 		
 		
-	//test si il rest des pions :
-	public boolean testRestePion(){
-            boolean res = false;
-            for(int i = 0; i < Taille; i++){
-                for(int j=0; j < Taille; j++){
-                    //Teste si la case contient un pion et permet d'obtenir la case du pion sélectionné
-                    if(this.testPresencePion(i,j)){
-                        res = true;
-                    }
-                }	
+    //test si il rest des pions :
+    public boolean testRestePion(){
+        boolean res = false;
+        for(int i = 0; i < Taille; i++){
+            for(int j=0; j < Taille; j++){
+                //Teste si la case contient un pion et permet d'obtenir la case du pion sélectionné
+                if(this.testPresencePion(i,j)){
+                    res = true;
+                }
+            }	
         }
         return res;
-        }
+    }
     
     
     public boolean testPresencePion(int i, int j){
@@ -148,7 +149,7 @@ public class Plateau extends JPanel{
                 if(i+1<Taille && j+1<Taille && getCase(i+1, j+1).getComponentCount()==0){
                     getCase(i+1, j+1).setChoisie(true);
                 }
-                //verie si case et si peut sauter pion de couleur différente
+                //verifie si case et si peut sauter pion de couleur différente
                 else if((i+2<Taille) && (j+2<Taille) && (getCase(i+2, j+2).getComponentCount()==0)){
                     if(!(((Pion)(getCase(i+1, j+1).getComponent(0))).getCouleur()==(couleur))){
                         getCase(i+2, j+2).setChoisie(true);
