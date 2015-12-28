@@ -12,7 +12,6 @@ public class FenetreRegleJeu extends JFrame{
 
     public FenetreRegleJeu(){
         setSize(400,400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
         monPanelAffichageRegle = new JPanel(new BorderLayout());
 
