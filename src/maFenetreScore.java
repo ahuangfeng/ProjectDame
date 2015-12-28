@@ -47,8 +47,10 @@ public class maFenetreScore extends JFrame{
             monPanelAffichageDonnees.removeAll();
             monPanelAffichageDonnees.repaint();
         }*/
+        int nbManges = plat.getNbPionsSautes();
         
-        nbPionsMangesJ1 = new JLabel("      nombre de pions manges : + *** " );
+        nbPionsMangesJ1 = new JLabel("      nombre de pions manges : + *** "+nbManges);
+        nbPionsMangesJ1.repaint();
         nbPionsRestantsJ1 = new JLabel("      nombre de pions restants : + *** ");
 
         nomJoueurDeux = new JLabel("      "+nom2);

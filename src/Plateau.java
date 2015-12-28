@@ -12,6 +12,7 @@ public class Plateau extends JPanel{
     private Case caseActive;
     private boolean tour0;
     private static int nbPionsSautes=0;
+    //private static int nbPionsSautesJ2=0;
     //private maFenetreScore mfs;
 
     //private boolean deplacementAutorise;
@@ -264,7 +265,7 @@ public class Plateau extends JPanel{
         return res;
     }
     
-	public int getNbPionsSautes(){
-		return nbPionsSautes;
-	}
+    public int getNbPionsSautes(){
+            return nbPionsSautes;
+    }
 }
