@@ -11,8 +11,8 @@ public class Plateau extends JPanel{
     private int Taille=11;
     private Case caseActive;
     private boolean tour0;
-    private int nbPionsSautes;
-    private maFenetreScore mfs;
+    private static int nbPionsSautes=0;
+    //private maFenetreScore mfs;
 
 //private boolean deplacementAutorise;
 
@@ -176,7 +176,6 @@ public class Plateau extends JPanel{
 		
 		
     public void deplacer(Case case1){
-		int nbPionsSautes= 0;
         //permet de placer le pion dans la case sélectionné
         //Création de la dame si le pion se place sur la dernière ligne
         if(case1==getCase(0,0)){
@@ -210,8 +209,8 @@ public class Plateau extends JPanel{
                 nbPionsSautes++;
                 //maFenetreScore maFenSc = new maFenetreScore();
                 
-				mfs.monPanelAffichageDonnees.removeAll();
-				mfs.monPanelAffichageDonnees.repaint();
+				//mfs.monPanelAffichageDonnees.removeAll();
+				//mfs.monPanelAffichageDonnees.repaint();
 		
             }
 
