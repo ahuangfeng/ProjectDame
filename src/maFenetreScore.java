@@ -32,10 +32,10 @@ public class maFenetreScore extends JFrame{
 
         monPanelAffichageDonnees = new JPanel(new GridLayout(17,1));
         PanelGlobalScore = new JPanel(new BorderLayout());
-
-        //Plateau plat = new Plateau();
-        //plat.initialiser();
-        //PanelGlobalScore.add(plat,BorderLayout.CENTER);
+        //creer plateau
+        Plateau plat = new Plateau();
+        plat.initialiser();
+        PanelGlobalScore.add(plat,BorderLayout.CENTER);
 
 
         nomJoueurUn = new JLabel("*Joueur 1*");

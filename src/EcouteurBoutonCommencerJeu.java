@@ -11,7 +11,7 @@ public class EcouteurBoutonCommencerJeu implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae){
-        new Lanceur();
+        new maFenetreScore();
     }
 	
 }
