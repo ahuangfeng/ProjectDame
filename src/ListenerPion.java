@@ -26,6 +26,7 @@ public class ListenerPion implements MouseListener {
 
     public void mousePressed(MouseEvent arg0) {
         plateau.affichePossibilitesPion(pion);
+        
         //plateau.getPositionPion(pion)
     }
 

@@ -18,6 +18,8 @@ public class maFenetreScore extends JFrame{
     private JLabel phraseNbPartiJ2;
     private JLabel tempsEcoule;
     private JLabel vide;
+    
+    private int nbManges =0;
 	
     public JPanel monPanelAffichageDonnees;
     private JPanel PanelGlobalScore;
@@ -33,7 +35,7 @@ public class maFenetreScore extends JFrame{
         monPanelAffichageDonnees = new JPanel(new GridLayout(17,1));
         PanelGlobalScore = new JPanel(new BorderLayout());
         //creer plateau
-        Plateau plat = new Plateau();
+        Plateau plat = new Plateau(this);
         plat.initialiser();
         PanelGlobalScore.add(plat,BorderLayout.CENTER);
 
@@ -47,10 +49,11 @@ public class maFenetreScore extends JFrame{
             monPanelAffichageDonnees.removeAll();
             monPanelAffichageDonnees.repaint();
         }*/
-        int nbManges = plat.getNbPionsSautes();
+
+        this.nbManges = plat.getNbPionsSautes();
         
         nbPionsMangesJ1 = new JLabel("      nombre de pions manges : + *** "+nbManges);
-        nbPionsMangesJ1.repaint();
+        
         nbPionsRestantsJ1 = new JLabel("      nombre de pions restants : + *** ");
 
         nomJoueurDeux = new JLabel("      "+nom2);
@@ -95,10 +98,19 @@ public class maFenetreScore extends JFrame{
 
         //rendre la fenêtre visible
         setVisible(true);
+        
+        
     }
     
     public JPanel getPanelScore(){
         return this.PanelGlobalScore;
+    }
+    
+    public void setPionsManges(int nom){
+        if(nom!=this.nbManges){
+            this.nbPionsMangesJ1.setText("      nombre de pions manges : + *** "+nom);
+        }
+        
     }
 
 //losange vide : pas de forte dependance

@@ -13,12 +13,12 @@ public class Plateau extends JPanel{
     private boolean tour0;
     private static int nbPionsSautes=0;
     //private static int nbPionsSautesJ2=0;
-    //private maFenetreScore mfs;
+    private maFenetreScore mfs;
 
     //private boolean deplacementAutorise;
 
-    public Plateau() {
-        //mfs = new maFenetreScore();
+    public Plateau(maFenetreScore fenetr) {
+        this.mfs = fenetr;
 		
         tour0 =false;
         setLayout(new GridLayout(this.Taille,this.Taille));
@@ -43,6 +43,7 @@ public class Plateau extends JPanel{
 		
     public Pion creerPion(int couleur, boolean monte){
         Pion pion = new Pion(couleur,monte);
+        //mfs = new maFenetreScore("hola","gllaaa");
         pion.addMouseListener(new ListenerPion(pion, this));
         return pion;
     }
@@ -209,10 +210,12 @@ public class Plateau extends JPanel{
                 getCase(i, j).validate();
                 getCase(i, j).repaint();
                 nbPionsSautes++;
+                this.mfs.setPionsManges(nbPionsSautes);
+                System.out.println(nbPionsSautes);
                 //maFenetreScore maFenSc = new maFenetreScore();
                 
-				//mfs.monPanelAffichageDonnees.removeAll();
-				//mfs.monPanelAffichageDonnees.repaint();
+                //mfs.monPanelAffichageDonnees.removeAll();
+                //mfs.monPanelAffichageDonnees.repaint();
 		
             }
 
@@ -225,21 +228,24 @@ public class Plateau extends JPanel{
             caseActive=null;
             case1.repaint();
             //
-            nbPionsSautes++;
+            //nbPionsSautes++;
+            //System.out.println(nbPionsSautes);
             //
 
             if(getLigne(case1)==0){
                 Pion p=(Pion)(case1.getComponent(0));
                 p.setMonte(false);
                 //
-                nbPionsSautes++;
+                //nbPionsSautes++;
+                //System.out.println(nbPionsSautes);
                 //
             }
             if(getLigne(case1)==Taille-1){
                 Pion p=(Pion)(case1.getComponent(0));
                 p.setMonte(true);
                 //
-                nbPionsSautes++;
+                //nbPionsSautes++;
+                //System.out.println(nbPionsSautes);
                 //
             }
         }
@@ -266,6 +272,7 @@ public class Plateau extends JPanel{
     }
     
     public int getNbPionsSautes(){
-            return nbPionsSautes;
+        System.out.println(nbPionsSautes);
+        return nbPionsSautes;
     }
 }
