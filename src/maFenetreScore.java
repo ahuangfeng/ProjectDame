@@ -20,6 +20,7 @@ public class maFenetreScore extends JFrame{
     private JLabel vide;
     
     private int nbManges =0;
+    private int nbRestant=44;
 	
     public JPanel monPanelAffichageDonnees;
     private JPanel PanelGlobalScore;
@@ -51,15 +52,15 @@ public class maFenetreScore extends JFrame{
         }*/
 
         this.nbManges = plat.getNbPionsSautes();
+        this.nbRestant=this.nbRestant-this.nbManges;
+        nbPionsMangesJ1 = new JLabel("      nombre de pions manges : "+this.nbManges);
         
-        nbPionsMangesJ1 = new JLabel("      nombre de pions manges : + *** "+nbManges);
-        
-        nbPionsRestantsJ1 = new JLabel("      nombre de pions restants : + *** ");
+        nbPionsRestantsJ1 = new JLabel("      nombre de pions restants : "+nbRestant);
 
         nomJoueurDeux = new JLabel("      "+nom2);
         //a modifier avec la classe joueur
-        nbPionsMangesJ2 = new JLabel("      nombre de pions manges : + *****" );
-        nbPionsRestantsJ2 = new JLabel("      nombre de pions restants : + *** ");
+        nbPionsMangesJ2 = new JLabel("      nombre de pions manges : "+this.nbManges);
+        nbPionsRestantsJ2 = new JLabel("      nombre de pions restants : "+nbRestant);
 
         phraseNbPartiJ1 = new JLabel(nom1+" a gagne + *** + partie(s)");
         phraseNbPartiJ2 = new JLabel(nom2+" a gagne + *** + partie(s)");
@@ -106,9 +107,12 @@ public class maFenetreScore extends JFrame{
         return this.PanelGlobalScore;
     }
     
-    public void setPionsManges(int nom){
+    public void setPionsManges(int nom,int res){
         if(nom!=this.nbManges){
-            this.nbPionsMangesJ1.setText("      nombre de pions manges : + *** "+nom);
+            this.nbPionsMangesJ1.setText("      nombre de pions manges : "+nom);
+            this.nbPionsMangesJ2.setText("      nombre de pions manges : "+nom);
+            this.nbPionsRestantsJ1.setText("      nombre de pions restants : "+res);
+            this.nbPionsRestantsJ2.setText("      nombre de pions restants : "+res);
         }
         
     }

@@ -210,13 +210,8 @@ public class Plateau extends JPanel{
                 getCase(i, j).validate();
                 getCase(i, j).repaint();
                 nbPionsSautes++;
-                this.mfs.setPionsManges(nbPionsSautes);
+                this.mfs.setPionsManges(nbPionsSautes,44-nbPionsSautes);
                 System.out.println(nbPionsSautes);
-                //maFenetreScore maFenSc = new maFenetreScore();
-                
-                //mfs.monPanelAffichageDonnees.removeAll();
-                //mfs.monPanelAffichageDonnees.repaint();
-		
             }
 
             for(int k=0; k<Taille*Taille; k++){
