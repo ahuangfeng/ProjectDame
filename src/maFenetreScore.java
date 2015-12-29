@@ -53,14 +53,14 @@ public class maFenetreScore extends JFrame{
 
         this.nbManges = plat.getNbPionsSautes();
         this.nbRestant=this.nbRestant-this.nbManges;
-        nbPionsMangesJ1 = new JLabel("      nombre de pions manges : "+this.nbManges);
+        nbPionsMangesJ1 = new JLabel("      Nombre de pions manges : "+this.nbManges);
         
-        nbPionsRestantsJ1 = new JLabel("      nombre de pions restants : "+nbRestant);
+        nbPionsRestantsJ1 = new JLabel("      Nombre de pions restants : "+nbRestant);
 
         nomJoueurDeux = new JLabel("      "+nom2);
         //a modifier avec la classe joueur
-        nbPionsMangesJ2 = new JLabel("      nombre de pions manges : "+this.nbManges);
-        nbPionsRestantsJ2 = new JLabel("      nombre de pions restants : "+nbRestant);
+        nbPionsMangesJ2 = new JLabel("      Nombre de pions manges : "+this.nbManges);
+        nbPionsRestantsJ2 = new JLabel("      Nombre de pions restants : "+nbRestant);
 
         phraseNbPartiJ1 = new JLabel(nom1+" a gagne + *** + partie(s)");
         phraseNbPartiJ2 = new JLabel(nom2+" a gagne + *** + partie(s)");

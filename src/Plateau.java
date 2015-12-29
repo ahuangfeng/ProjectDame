@@ -211,7 +211,7 @@ public class Plateau extends JPanel{
                 getCase(i, j).repaint();
                 nbPionsSautes++;
                 this.mfs.setPionsManges(nbPionsSautes,44-nbPionsSautes);
-                System.out.println(nbPionsSautes);
+                //System.out.println(nbPionsSautes);
             }
 
             for(int k=0; k<Taille*Taille; k++){
