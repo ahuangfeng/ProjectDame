@@ -14,12 +14,13 @@ public class Plateau extends JPanel{
     private static int nbPionsSautes=0;
     //private static int nbPionsSautesJ2=0;
     private maFenetreScore mfs;
+    boolean tiro;
 
     //private boolean deplacementAutorise;
 
     public Plateau(maFenetreScore fenetr) {
         this.mfs = fenetr;
-		
+        this.tiro=true;
         tour0 =false;
         setLayout(new GridLayout(this.Taille,this.Taille));
         for(int i=0; i<this.Taille; i++){
@@ -73,7 +74,7 @@ public class Plateau extends JPanel{
                 for(int j=0; j < Taille; j++){
                     //Teste si la case contient un pion et permet d'obtenir la case du pion sélectionné
                     if(getCase(i,j).getComponentCount()!=0 && getCase(i,j).getComponent(0).equals(p)){
-                        caseActive=getCase(i,j);
+                        this.caseActive=getCase(i,j);
                         a =i;
                         b = j;
                     }
@@ -181,31 +182,33 @@ public class Plateau extends JPanel{
     public void deplacer(Case case1){
         //permet de placer le pion dans la case sélectionné
         //Création de la dame si le pion se place sur la dernière ligne
-        if(case1==getCase(0,0)){
+        /*if(case1==getCase(0,0)){
             if(!tour0){
                 case1.add(creerDame(0,true));
-                caseActive.removeAll();
-                caseActive.repaint();
-                caseActive=null;
+                this.caseActive.removeAll();
+                this.caseActive.repaint();
+                this.caseActive=null;
+                //this.caseActive=case1;
                 case1.repaint();
             }
-        }
-        else if(case1==getCase(0,10)||case1==getCase(1,10)||case1==getCase(2,10)||case1==getCase(3,10)||case1==getCase(4,10)||case1==getCase(5,10)||case1==getCase(6,10)||case1==getCase(7,10)||case1==getCase(8,10)||case1==getCase(9,10)||case1==getCase(10,10)){
+        }*/
+        /*eelse if(case1==getCase(0,0)||case1==getCase(1,0)||case1==getCase(2,0)||case1==getCase(3,0)||case1==getCase(4,0)||case1==getCase(5,0)||case1==getCase(6,0)||case1==getCase(7,0)||case1==getCase(8,0)||case1==getCase(9,0)||case1==getCase(10,0)){
             if(tour0){
                 case1.add(creerDame(0,true));
-                caseActive.removeAll();
-                caseActive.repaint();
-                caseActive=null;
+                this.caseActive.removeAll();
+                this.caseActive.repaint();
+                this.caseActive=null;
+                //this.caseActive=case1;
                 case1.repaint();
             }
-        }
-        else{
-            case1.add(caseActive.getComponent(0)); 
+        }*/
+        /*else{*/
+            case1.add(this.caseActive.getComponent(0)); 
 
             //permet de supprimer sur le plateau le pion sauté
-            if(Math.abs(getLigne(case1)-getLigne(caseActive))==2){
-                int i = (getLigne(case1)+getLigne(caseActive))/2;
-                int j = (getColonne(case1)+getColonne(caseActive))/2;
+            if(Math.abs(getLigne(case1)-getLigne(this.caseActive))==2){
+                int i = (getLigne(case1)+getLigne(this.caseActive))/2;
+                int j = (getColonne(case1)+getColonne(this.caseActive))/2;
                 getCase(i, j).removeAll();
                 getCase(i, j).validate();
                 getCase(i, j).repaint();
@@ -218,9 +221,9 @@ public class Plateau extends JPanel{
                 getCase(k).setChoisie(false);
             }
             tour0=!tour0;
-            caseActive.removeAll();
-            caseActive.repaint();
-            caseActive=null;
+            this.caseActive.removeAll();
+            this.caseActive.repaint();
+            this.caseActive=null;
             case1.repaint();
             //
             //nbPionsSautes++;
@@ -243,7 +246,10 @@ public class Plateau extends JPanel{
                 //System.out.println(nbPionsSautes);
                 //
             }
-        }
+            
+            this.mfs.setTour(this.tiro);
+            this.tiro=!this.tiro;
+        //}
     }
 
     private int getLigne(Case case1){

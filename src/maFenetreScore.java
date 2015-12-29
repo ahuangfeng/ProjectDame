@@ -18,6 +18,7 @@ public class maFenetreScore extends JFrame{
     private JLabel phraseNbPartiJ2;
     private JLabel tempsEcoule;
     private JLabel vide;
+    private JLabel tour;
     
     private int nbManges =0;
     private int nbRestant=44;
@@ -64,6 +65,8 @@ public class maFenetreScore extends JFrame{
 
         phraseNbPartiJ1 = new JLabel(nom1+" a gagne + *** + partie(s)");
         phraseNbPartiJ2 = new JLabel(nom2+" a gagne + *** + partie(s)");
+        String turn = "Marron";
+        this.tour=new JLabel("    Tour : "+turn);
         /*Tiempo temp = new Tiempo();
         temp.Contar();
         temp.run();
@@ -88,6 +91,7 @@ public class maFenetreScore extends JFrame{
         monPanelAffichageDonnees.add(phraseNbPartiJ2);
         monPanelAffichageDonnees.add(vide);
         monPanelAffichageDonnees.add(vide);
+        monPanelAffichageDonnees.add(this.tour);
         //monPanelAffichageDonnees.add(tempsEcoule);
 
         PanelGlobalScore.add(monPanelAffichageDonnees, BorderLayout.EAST);
@@ -113,6 +117,14 @@ public class maFenetreScore extends JFrame{
             this.nbPionsMangesJ2.setText("      nombre de pions manges : "+nom);
             this.nbPionsRestantsJ1.setText("      nombre de pions restants : "+res);
             this.nbPionsRestantsJ2.setText("      nombre de pions restants : "+res);
+        }
+    }
+    
+    public void setTour(boolean turno){
+        if(turno){
+            this.tour.setText("    Tour : Blanc");
+        }else if(!turno){
+            this.tour.setText("    Tour : Marron");
         }
         
     }

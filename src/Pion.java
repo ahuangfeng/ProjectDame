@@ -24,8 +24,18 @@ public class Pion extends JPanel{
         }
         setOpaque(false);
     }
+    public Pion(){
+        this.couleur=0;
+        this.monte=true;
+    }
                 
-	
+    public void setCouleur(int col){
+        this.couleur=col;
+    }
+    
+    public void setMonte(boolean mon){
+        this.monte=mon;
+    }
     public void paintComponent(Graphics g){
         Paint paint;
         Graphics2D g2d = (Graphics2D) g;
@@ -56,10 +66,6 @@ public class Pion extends JPanel{
 	
     public boolean isMonte(){
         return monte;
-    }
-
-    public void setMonte(boolean monte){
-        this.monte=monte;
     }
 }
 
