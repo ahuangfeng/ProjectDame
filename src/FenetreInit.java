@@ -24,7 +24,7 @@ public class FenetreInit extends JFrame{
     private JTextField nom2 = new JTextField(5);
     private JTextField textAge1 = new JTextField(5);
     private JTextField textAge2 = new JTextField(5);
-    private String[] options = {"Blanc","Noir"};
+    private String[] options = {"Marron","Blanc"};
     private JComboBox liste=new JComboBox(options);
     private JButton regles = new JButton("Regle du jeu");
     private JButton commencer = new JButton("Commence le jeu");
@@ -58,7 +58,6 @@ public class FenetreInit extends JFrame{
         ligne2.add(this.nom2); 
         ligne2.add(this.age2);
         ligne2.add(this.textAge2);
-        
          
         tete.add(this.titre);
         grid.add(tete);
@@ -93,12 +92,12 @@ public class FenetreInit extends JFrame{
         return (nom2.getText());
     }
 
-    public String getSaisieAge1(){
-        return (textAge1.getText());
+    public int getSaisieAge1(){
+        return Integer.parseInt(textAge1.getText());
     }
 	
-    public String getSaisieAge2(){
-        return (textAge2.getText());
+    public int getSaisieAge2(){
+        return Integer.parseInt(textAge2.getText());
     }
 	
     public int getSelectedIndex() {

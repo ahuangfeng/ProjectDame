@@ -37,7 +37,7 @@ public class maFenetreScore extends JFrame{
         monPanelAffichageDonnees = new JPanel(new GridLayout(17,1));
         PanelGlobalScore = new JPanel(new BorderLayout());
         //creer plateau
-        Plateau plat = new Plateau(this);
+        Plateau plat = new Plateau(this,new FenetreInit());
         plat.initialiser();
         PanelGlobalScore.add(plat,BorderLayout.CENTER);
 

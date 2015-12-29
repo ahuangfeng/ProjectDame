@@ -15,12 +15,23 @@ public class Plateau extends JPanel{
     //private static int nbPionsSautesJ2=0;
     private maFenetreScore mfs;
     boolean tiro;
+    private FenetreInit ini;
 
     //private boolean deplacementAutorise;
 
-    public Plateau(maFenetreScore fenetr) {
+    public Plateau(maFenetreScore fenetr,FenetreInit init) {
         this.mfs = fenetr;
         this.tiro=true;
+        this.ini=init;
+        /*if((this.ini.getSelectedIndex()==1) && (this.ini.getSaisieAge1()<this.ini.getSaisieAge2())){
+            tour0 = false;
+        }else if((this.ini.getSelectedIndex()==1) && (this.ini.getSaisieAge1()<this.ini.getSaisieAge2())){
+            tour0=true;
+        }else if((this.ini.getSelectedIndex()==0) && (this.ini.getSaisieAge1()>=this.ini.getSaisieAge2())){
+            tour0=true;
+        }else if((this.ini.getSelectedIndex()==1) && (this.ini.getSaisieAge1()>=this.ini.getSaisieAge2())){
+            tour0=false;
+        }*/
         tour0 =false;
         setLayout(new GridLayout(this.Taille,this.Taille));
         for(int i=0; i<this.Taille; i++){
@@ -33,7 +44,6 @@ public class Plateau extends JPanel{
                 }
             }
         }
-        
     }
 	
     public void ajouterCase(int o){
