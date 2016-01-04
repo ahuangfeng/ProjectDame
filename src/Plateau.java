@@ -11,8 +11,8 @@ public class Plateau extends JPanel{
     private final int Taille=11;
     private Case caseActive;
     private boolean tour0;
-    private static int nbPionsSautes=0;
-    //private static int nbPionsSautesJ2=0;
+    private static int nbPionsSautesJ1=0;
+    private static int nbPionsSautesJ2=0;
     private maFenetreScore mfs;
     boolean tiro;
     private FenetreInit ini;
@@ -226,9 +226,18 @@ public class Plateau extends JPanel{
                 getCase(i, j).removeAll();
                 getCase(i, j).validate();
                 getCase(i, j).repaint();
-                nbPionsSautes++;
-                this.mfs.setPionsManges(nbPionsSautes,44-nbPionsSautes);
+                if(this.tiro){
+                    nbPionsSautesJ1++;
+                }else{
+                    nbPionsSautesJ2++;
+                }
+                this.mfs.setPionsMangesJ1(nbPionsSautesJ1,22-nbPionsSautesJ1);
+                this.mfs.setPionsMangesJ2(nbPionsSautesJ2,22-nbPionsSautesJ2);
                 //System.out.println(nbPionsSautes);
+                if(nbPionsSautesJ1==22 || nbPionsSautesJ2==22){
+                    //affichage FenetreFin si tout les pions ont ete manges
+                    new FenetreFin();
+                }
             }
 
             for(int k=0; k<Taille*Taille; k++){
@@ -286,9 +295,14 @@ public class Plateau extends JPanel{
         return res;
     }
     
-    public int getNbPionsSautes(){
-        System.out.println(nbPionsSautes);
-        return nbPionsSautes;
+    public int getNbPionsSautesJ1(){
+        System.out.println(nbPionsSautesJ1);
+        return nbPionsSautesJ1;
+    }
+    
+    public int getNbPionsSautesJ2(){
+        System.out.println(nbPionsSautesJ2);
+        return nbPionsSautesJ2;
     }
     
     public boolean getTour(){

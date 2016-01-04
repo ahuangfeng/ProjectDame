@@ -20,8 +20,11 @@ public class maFenetreScore extends JFrame{
     private JLabel vide;
     private JLabel tour;
     
-    private int nbManges =0;
-    private int nbRestant=44;
+    private int nbMangesJ1 =0;
+    private int nbRestantJ1=22;
+    
+    private int nbMangesJ2 =0;
+    private int nbRestantJ2=22;
 	
     public JPanel monPanelAffichageDonnees;
     private JPanel PanelGlobalScore;
@@ -53,16 +56,18 @@ public class maFenetreScore extends JFrame{
             monPanelAffichageDonnees.repaint();
         }*/
 
-        this.nbManges = plat.getNbPionsSautes();
-        this.nbRestant=this.nbRestant-this.nbManges;
-        nbPionsMangesJ1 = new JLabel("      Nombre de pions manges : "+this.nbManges);
+        this.nbMangesJ1 = plat.getNbPionsSautesJ1();
+        this.nbRestantJ1=this.nbRestantJ1-this.nbMangesJ1;
+        this.nbMangesJ2 = plat.getNbPionsSautesJ2();
+        this.nbRestantJ2=this.nbRestantJ2-this.nbMangesJ2;
+        nbPionsMangesJ1 = new JLabel("      Nombre de pions manges : "+this.nbMangesJ1);
         
-        nbPionsRestantsJ1 = new JLabel("      Nombre de pions restants : "+nbRestant);
+        nbPionsRestantsJ1 = new JLabel("      Nombre de pions restants : "+nbRestantJ1);
 
         nomJoueurDeux = new JLabel("      "+nom2);
         //a modifier avec la classe joueur
-        nbPionsMangesJ2 = new JLabel("      Nombre de pions manges : "+this.nbManges);
-        nbPionsRestantsJ2 = new JLabel("      Nombre de pions restants : "+nbRestant);
+        nbPionsMangesJ2 = new JLabel("      Nombre de pions manges : "+this.nbMangesJ2);
+        nbPionsRestantsJ2 = new JLabel("      Nombre de pions restants : "+nbRestantJ2);
 
         phraseNbPartiJ1 = new JLabel(nom1+" a gagne + *** + partie(s)");
         phraseNbPartiJ2 = new JLabel(nom2+" a gagne + *** + partie(s)");
@@ -73,12 +78,6 @@ public class maFenetreScore extends JFrame{
             turn="Marron";
         }
         this.tour=new JLabel("    Tour : "+turn);
-        /*Tiempo temp = new Tiempo();
-        temp.Contar();
-        temp.run();
-        //tempsEcoule = new JLabel("temps ecoule : " + Integer.parseInt((temp.run()).getText()));
-        tempsEcoule = new JLabel("temps ecoule : " +temp.getSegundos());
-        */
         vide = new JLabel("");
 
         monPanelAffichageDonnees.add(nomJoueurUn);
@@ -117,11 +116,20 @@ public class maFenetreScore extends JFrame{
         return this.PanelGlobalScore;
     }
     
-    public void setPionsManges(int nom,int res){
-        if(nom!=this.nbManges){
+    public void setPionsMangesJ1(int nom,int res){
+        if(nom!=this.nbMangesJ1){
             this.nbPionsMangesJ1.setText("      nombre de pions manges : "+nom);
-            this.nbPionsMangesJ2.setText("      nombre de pions manges : "+nom);
+            //this.nbPionsMangesJ2.setText("      nombre de pions manges : "+nom);
             this.nbPionsRestantsJ1.setText("      nombre de pions restants : "+res);
+            //this.nbPionsRestantsJ2.setText("      nombre de pions restants : "+res);
+        }
+    }
+    
+    public void setPionsMangesJ2(int nom,int res){
+        if(nom!=this.nbMangesJ1){
+            //this.nbPionsMangesJ1.setText("      nombre de pions manges : "+nom);
+            this.nbPionsMangesJ2.setText("      nombre de pions manges : "+nom);
+            //this.nbPionsRestantsJ1.setText("      nombre de pions restants : "+res);
             this.nbPionsRestantsJ2.setText("      nombre de pions restants : "+res);
         }
     }
