@@ -25,6 +25,9 @@ public class maFenetreScore extends JFrame{
 	
     public JPanel monPanelAffichageDonnees;
     private JPanel PanelGlobalScore;
+    
+    private JButton btnFinDeJeu;
+    private EcouteurBoutonFinDeJeu ecFinJeu;
 	
     public static int nbPionAvalesJ1;
 	
@@ -40,7 +43,10 @@ public class maFenetreScore extends JFrame{
         Plateau plat = new Plateau(this,new FenetreInit());
         plat.initialiser();
         PanelGlobalScore.add(plat,BorderLayout.CENTER);
-
+        
+        ecFinJeu = new EcouteurBoutonFinDeJeu(this);
+        btnFinDeJeu = new JButton("Fin du jeu");
+        btnFinDeJeu.addActionListener(ecFinJeu);
 
         nomJoueurUn = new JLabel("      "+nom1);
         //a modifier avec la classe joueur
@@ -92,6 +98,18 @@ public class maFenetreScore extends JFrame{
         monPanelAffichageDonnees.add(vide);
         monPanelAffichageDonnees.add(vide);
         monPanelAffichageDonnees.add(this.tour);
+        monPanelAffichageDonnees.add(vide);
+        monPanelAffichageDonnees.add(vide);
+        monPanelAffichageDonnees.add(vide);
+        monPanelAffichageDonnees.add(vide);
+        monPanelAffichageDonnees.add(vide);
+        monPanelAffichageDonnees.add(vide);
+        monPanelAffichageDonnees.add(vide);
+        monPanelAffichageDonnees.add(vide);
+        monPanelAffichageDonnees.add(vide);
+        monPanelAffichageDonnees.add(vide);
+        monPanelAffichageDonnees.add(vide);
+        monPanelAffichageDonnees.add(btnFinDeJeu);
         //monPanelAffichageDonnees.add(tempsEcoule);
 
         PanelGlobalScore.add(monPanelAffichageDonnees, BorderLayout.EAST);

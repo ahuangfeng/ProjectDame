@@ -65,7 +65,7 @@ public class FenetreFin extends JFrame{
         vide3 = new JPanel();
 
         //création des trois boutons pour center le texte
-        videRejouer.add(boutonRejouer);
+        //videRejouer.add(boutonRejouer);
         videNouvellePartie.add(boutonNouvellePartie);
         videQuitter.add(quitter);
 
