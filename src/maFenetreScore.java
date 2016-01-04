@@ -25,10 +25,11 @@ public class maFenetreScore extends JFrame{
 	
     public JPanel monPanelAffichageDonnees;
     private JPanel PanelGlobalScore;
+    private Plateau plat;
 	
     public static int nbPionAvalesJ1;
 	
-    public maFenetreScore(String nom1, String nom2){
+    public maFenetreScore(String nom1, String nom2, FenetreInit ini){
 	
         //définir la taille et la fermeture par défaut
         setSize(800,600);
@@ -37,7 +38,7 @@ public class maFenetreScore extends JFrame{
         monPanelAffichageDonnees = new JPanel(new GridLayout(17,1));
         PanelGlobalScore = new JPanel(new BorderLayout());
         //creer plateau
-        Plateau plat = new Plateau(this,new FenetreInit());
+        this.plat = new Plateau(this,ini);
         plat.initialiser();
         PanelGlobalScore.add(plat,BorderLayout.CENTER);
 
@@ -65,7 +66,12 @@ public class maFenetreScore extends JFrame{
 
         phraseNbPartiJ1 = new JLabel(nom1+" a gagne + *** + partie(s)");
         phraseNbPartiJ2 = new JLabel(nom2+" a gagne + *** + partie(s)");
-        String turn = "Marron";
+        String turn="";
+        if(this.plat.getTour()==true){
+            turn = "Blanc";
+        }else{
+            turn="Marron";
+        }
         this.tour=new JLabel("    Tour : "+turn);
         /*Tiempo temp = new Tiempo();
         temp.Contar();
@@ -126,7 +132,10 @@ public class maFenetreScore extends JFrame{
         }else if(!turno){
             this.tour.setText("    Tour : Marron");
         }
-        
+    }
+    
+    public Plateau getPlateau(){
+        return this.plat;
     }
 
 //losange vide : pas de forte dependance

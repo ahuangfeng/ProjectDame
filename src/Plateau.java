@@ -23,16 +23,20 @@ public class Plateau extends JPanel{
         this.mfs = fenetr;
         this.tiro=true;
         this.ini=init;
-        /*if((this.ini.getSelectedIndex()==1) && (this.ini.getSaisieAge1()<this.ini.getSaisieAge2())){
-            tour0 = false;
-        }else if((this.ini.getSelectedIndex()==1) && (this.ini.getSaisieAge1()<this.ini.getSaisieAge2())){
-            tour0=true;
-        }else if((this.ini.getSelectedIndex()==0) && (this.ini.getSaisieAge1()>=this.ini.getSaisieAge2())){
-            tour0=true;
-        }else if((this.ini.getSelectedIndex()==1) && (this.ini.getSaisieAge1()>=this.ini.getSaisieAge2())){
-            tour0=false;
-        }*/
-        tour0 =false;
+        //Comparer ages
+        if((this.ini.getTextAge1().equals("")) || (this.ini.getTextAge2().equals(""))){
+            System.out.println("Error!");
+        }else{
+            if((this.ini.getSelectedIndex()==0) && (this.ini.getSaisieAge1()<this.ini.getSaisieAge2())){
+                tour0 = false;
+            }else if((this.ini.getSelectedIndex()==1) && (this.ini.getSaisieAge1()<this.ini.getSaisieAge2())){
+                tour0=true;
+            }else if((this.ini.getSelectedIndex()==0) && (this.ini.getSaisieAge1()>=this.ini.getSaisieAge2())){
+                tour0=true;
+            }else if((this.ini.getSelectedIndex()==1) && (this.ini.getSaisieAge1()>=this.ini.getSaisieAge2())){
+                tour0=false;
+            }
+        }
         setLayout(new GridLayout(this.Taille,this.Taille));
         for(int i=0; i<this.Taille; i++){
             for(int j=0; j<this.Taille; j++){
@@ -285,5 +289,9 @@ public class Plateau extends JPanel{
     public int getNbPionsSautes(){
         System.out.println(nbPionsSautes);
         return nbPionsSautes;
+    }
+    
+    public boolean getTour(){
+        return this.tour0;
     }
 }

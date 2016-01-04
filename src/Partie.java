@@ -18,7 +18,7 @@ public class Partie {
         this.joueur1=jug1;
         this.joueur2=jug2;
         
-        Plateau plat = new Plateau(new maFenetreScore("h","j"),new FenetreInit());
+        //Plateau plat = new Plateau(new maFenetreScore("h","j"),new FenetreInit());
     }	
 }
 
