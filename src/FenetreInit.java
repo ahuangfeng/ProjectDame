@@ -74,7 +74,6 @@ public class FenetreInit extends JFrame{
         grid.add(fin);
         
         cadre.add(grid,BorderLayout.CENTER);
-        //cadre.add(vide,BorderLayout.NORTH);
         
         setContentPane(cadre);
         setSize(600,400);

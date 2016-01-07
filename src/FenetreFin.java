@@ -105,8 +105,6 @@ public class FenetreFin extends JFrame{
         boutonRejouer.addActionListener(EcouteurBtnRejouer);
         boutonNouvellePartie.addActionListener(EcouteurBtnNewPartie);
 
-        //quitter.addActionListener(new EcouteurQuitter(this));
-
         setContentPane(cadrePrincipal);
         setSize(700,700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

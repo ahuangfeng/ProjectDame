@@ -58,11 +58,6 @@ public class maFenetreScore extends JFrame{
         
         //int a = nbPionAvalesJ1 + plat.getNbPionsSautes();
         
-        /*if(plat.getNbPionsSautes()!=0){
-            monPanelAffichageDonnees.removeAll();
-            monPanelAffichageDonnees.repaint();
-        }*/
-
         this.nbMangesJ1 = plat.getNbPionsSautesJ1();
         this.nbRestantJ1=this.nbRestantJ1-this.nbMangesJ1;
         this.nbMangesJ2 = plat.getNbPionsSautesJ2();
