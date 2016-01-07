@@ -11,7 +11,7 @@ public class ListenerPion implements MouseListener {
         this.plateau=plateau;
         this.pion=pion;
     }
-
+    //méthodes utiles pour détecter les différentes actions de la souris
     public void mouseClicked(MouseEvent arg0) {
         
     }
