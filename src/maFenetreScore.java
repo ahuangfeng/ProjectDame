@@ -32,6 +32,7 @@ public class maFenetreScore extends JFrame{
     private JButton btnFinDeJeu;
     private EcouteurBoutonFinDeJeu ecFinJeu;
     private Plateau plat;
+    private String turn;
 	
     public static int nbPionAvalesJ1;
 	
@@ -77,11 +78,11 @@ public class maFenetreScore extends JFrame{
 
         phraseNbPartiJ1 = new JLabel(nom1+" a gagne + *** + partie(s)");
         phraseNbPartiJ2 = new JLabel(nom2+" a gagne + *** + partie(s)");
-        String turn="";
+        this.turn="";
         if(this.plat.getTour()==true){
             turn = "Blanc";
         }else{
-            turn="Marron";
+            turn = "Marron";
         }
         this.tour=new JLabel("    Tour : "+turn);
         vide = new JLabel("");
@@ -153,10 +154,18 @@ public class maFenetreScore extends JFrame{
     }
     
     public void setTour(boolean turno){
-        if(turno){
-            this.tour.setText("    Tour : Blanc");
-        }else if(!turno){
-            this.tour.setText("    Tour : Marron");
+        if(turn.equals("Blanc")){
+            if(!turno){
+                this.tour.setText("    Tour : Blanc");
+            }else if(turno){
+                this.tour.setText("    Tour : Marron");
+            }
+        }else if(turn.equals("Marron")){
+            if(turno){
+                this.tour.setText("    Tour : Blanc");
+            }else if(!turno){
+                this.tour.setText("    Tour : Marron");
+            }
         }
     }
     
