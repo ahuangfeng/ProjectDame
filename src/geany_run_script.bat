@@ -1,4 +1,4 @@
-java "TestLanceur"
+java "maFenetreScore"
 
 pause
 del "%0"

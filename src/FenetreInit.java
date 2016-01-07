@@ -26,7 +26,7 @@ public class FenetreInit extends JFrame{
     private JTextField textAge2 = new JTextField(5);
     private String[] options = {"Marron","Blanc"};
     private JComboBox liste=new JComboBox(options);
-    private JButton regles = new JButton("Régle du jeu");
+    private JButton regles = new JButton("Regle du jeu");
     private JButton commencer = new JButton("Commence le jeu");
     private JLabel phrase = new JLabel("Info : le joueur le plus jeune commencera la partie ");
     

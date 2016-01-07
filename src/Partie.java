@@ -10,16 +10,22 @@
  */
 public class Partie {
 	
-    private Joueur joueur1;
+    private Joueur vainqueur;
     private Joueur joueur2;
 
 
-    public Partie(Joueur jug1,Joueur jug2){
-        this.joueur1=jug1;
-        this.joueur2=jug2;
+    public Partie(Joueur vainqueur){
+        this.vainqueur= vainqueur;   
         
-        //Plateau plat = new Plateau(new maFenetreScore("h","j"),new FenetreInit());
     }	
-}
+    
+    /*public Joueur estLeVainqueur(){
+	
+	}*/
+    
+			
+	}
+	
+
 
 
