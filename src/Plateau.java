@@ -133,7 +133,7 @@ public class Plateau extends JPanel{
     return niemeCase;	
     }
     */
-		
+	//test des cases ou le deplacement est possible	
     public void caseAutorise(int i, int j, int couleur){
         Pion pion = (Pion)(getCase(i, j).getComponent(0));
         if(pion.isMonte()){
