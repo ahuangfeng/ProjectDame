@@ -76,8 +76,8 @@ public class maFenetreScore extends JFrame{
         nbPionsMangesJ2 = new JLabel("      Nombre de pions manges : "+this.nbMangesJ2);
         nbPionsRestantsJ2 = new JLabel("      Nombre de pions restants : "+nbRestantJ2);
 
-        phraseNbPartiJ1 = new JLabel(nom1+" a gagne + *** + partie(s)");
-        phraseNbPartiJ2 = new JLabel(nom2+" a gagne + *** + partie(s)");
+        phraseNbPartiJ1 = new JLabel("      "+nom1+" a gagne + *** + partie(s)");
+        phraseNbPartiJ2 = new JLabel("      "+nom2+" a gagne + *** + partie(s)");
         this.turn="";
         if(this.plat.getTour()==true){
             turn = "Blanc";
