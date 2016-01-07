@@ -12,7 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FenetreInit extends JFrame{
-    
+	//création des éléments constitutifs de la fenetre
     private JLabel titre = new JLabel("JEU DE DAME");
     private JLabel joueur1 = new JLabel("Joueur 1 ");
     private JLabel joueur2 = new JLabel("Joueur 2 ");
@@ -40,6 +40,7 @@ public class FenetreInit extends JFrame{
         ecouteurBtnCommencerLeJeu = new EcouteurBoutonCommencerJeu(this);
         commencer.addActionListener(ecouteurBtnCommencerLeJeu);
         
+        //création des éléments constructifs de la fenetre
         JPanel cadre = new JPanel(new BorderLayout());
         JPanel tete = new JPanel(new FlowLayout());
         JPanel jou1= new JPanel(new FlowLayout());
