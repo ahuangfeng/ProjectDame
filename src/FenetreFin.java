@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FenetreFin extends JFrame{
+    //Création des éléments de la fenetre
     private JButton boutonRejouer;
     private JButton boutonNouvellePartie;
     private JButton quitter;
@@ -27,7 +28,8 @@ public class FenetreFin extends JFrame{
     private JPanel vide1;
     private JPanel vide2;
     private JPanel vide3;
-
+    
+    //création des écouteurs
     private EcouteurBoutonFerme EcouteurBtnClose;
     private EcouteurBoutonNouvellePartie EcouteurBtnNewPartie;
     private EcouteurBoutonRejouer EcouteurBtnRejouer;
@@ -41,6 +43,7 @@ public class FenetreFin extends JFrame{
         boutonNouvellePartie= new JButton("Nouvelle Partie" );
         quitter = new JButton("Quitter le jeu");
 
+        //instanciation des éléments constructifs de la fenetre
         pBas= new JPanel(new GridLayout(3,1));
         pMilieu = new JPanel(new GridLayout(3,1));
         pHaut = new JPanel(new FlowLayout());

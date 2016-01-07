@@ -15,6 +15,7 @@ public class Pion extends JPanel{
         //this.joueur=joueur;
         this.monte=monte;
         this.couleur=couleur;
+        //création couleur des pions
         if(this.couleur==0){
             setForeground(Color.LIGHT_GRAY);
             setBackground(Color.WHITE);
@@ -36,6 +37,8 @@ public class Pion extends JPanel{
     public void setMonte(boolean mon){
         this.monte=mon;
     }
+    
+    //dessine les pions
     public void paintComponent(Graphics g){
         Paint paint;
         Graphics2D g2d = (Graphics2D) g;

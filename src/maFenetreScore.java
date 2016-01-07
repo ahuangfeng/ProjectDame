@@ -1,13 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedList;
-import java.util.Timer;
-import java.util.TimerTask;
+//import java.util.Timer;
+//import java.util.TimerTask;
+import java.awt.event.*;
+import java.lang.*;
 
 
 public class maFenetreScore extends JFrame{
-
 	
+	//création des variables
     private JLabel nomJoueurUn;
     private JLabel nomJoueurDeux;
     private JLabel nbPionsMangesJ1;
@@ -20,6 +22,19 @@ public class maFenetreScore extends JFrame{
     private JLabel vide;
     private JLabel tour;
     
+    //Variable pour le Timer
+    public static int heure=0;
+    public static int minute =0;
+    public static int seconde =0;
+	
+	//Panel pour le Timer
+	public JLabel LabelTemps;
+	public JButton boutonDebutChronometre;
+	public JPanel PanelChronometre;
+	public Timer timer1;
+	private EcouteurChronometre ecChronometre;
+
+	
     private int nbMangesJ1 =0;
     private int nbRestantJ1=22;
     
@@ -53,11 +68,52 @@ public class maFenetreScore extends JFrame{
         btnFinDeJeu = new JButton("Fin du jeu");
         btnFinDeJeu.addActionListener(ecFinJeu);
 
+//instancier des variables pour le Timer
+		//ecChronometre = new EcouteurChronometre(this);
+		
+		
+		int delais =1000;
+		ActionListener tache_timer;
+		
+		tache_timer = new ActionListener(){
+			public void actionPerformed(ActionEvent e1)
+			{
+				seconde++;
+				if(seconde==60)
+				{
+					seconde=0;
+					minute++;
+				}
+				if(minute==60)
+				{
+					minute=0;
+					heure++;
+				}
+				LabelTemps.setText(heure+":"+minute+":"+seconde);/* rafraichir le label */
+				
+			}
+		};
+	
+		timer1 = new Timer(delais,tache_timer);
+		
+		LabelTemps = new JLabel("Temps ecoule : "+heure+":"+minute+":"+seconde);
+		boutonDebutChronometre = new JButton ("Start");
+		PanelChronometre= new JPanel();
+		boutonDebutChronometre.addActionListener(ecChronometre);
+		
+		PanelChronometre.add(LabelTemps);
+		PanelChronometre.add(boutonDebutChronometre);
+
         nomJoueurUn = new JLabel("      "+nom1);
         //a modifier avec la classe joueur
         
         //int a = nbPionAvalesJ1 + plat.getNbPionsSautes();
         
+        /*if(plat.getNbPionsSautes()!=0){
+            monPanelAffichageDonnees.removeAll();
+            monPanelAffichageDonnees.repaint();
+        }*/
+	//Statistiques pions mangés
         this.nbMangesJ1 = plat.getNbPionsSautesJ1();
         this.nbRestantJ1=this.nbRestantJ1-this.nbMangesJ1;
         this.nbMangesJ2 = plat.getNbPionsSautesJ2();
@@ -81,7 +137,7 @@ public class maFenetreScore extends JFrame{
         }
         this.tour=new JLabel("    Tour : "+turn);
         vide = new JLabel("");
-
+	//organisation des éléments constitutifs de la fenetre
         monPanelAffichageDonnees.add(nomJoueurUn);
         monPanelAffichageDonnees.add(nbPionsMangesJ1);
         monPanelAffichageDonnees.add(nbPionsRestantsJ1);
@@ -109,7 +165,7 @@ public class maFenetreScore extends JFrame{
         monPanelAffichageDonnees.add(vide);
         monPanelAffichageDonnees.add(vide);
         monPanelAffichageDonnees.add(vide);
-        monPanelAffichageDonnees.add(vide);
+        monPanelAffichageDonnees.add(PanelChronometre);
         monPanelAffichageDonnees.add(btnFinDeJeu);
         //monPanelAffichageDonnees.add(tempsEcoule);
 
@@ -129,7 +185,7 @@ public class maFenetreScore extends JFrame{
     public JPanel getPanelScore(){
         return this.PanelGlobalScore;
     }
-    
+    //méthode pour mettre à jour le nombre de pions mangés du joueur 1
     public void setPionsMangesJ1(int nom,int res){
         if(nom!=this.nbMangesJ1){
             this.nbPionsMangesJ1.setText("      nombre de pions manges : "+nom);
@@ -138,7 +194,7 @@ public class maFenetreScore extends JFrame{
             //this.nbPionsRestantsJ2.setText("      nombre de pions restants : "+res);
         }
     }
-    
+    //méthode pour mettre à jour le nombre de pions mangés du joueur 2
     public void setPionsMangesJ2(int nom,int res){
         if(nom!=this.nbMangesJ1){
             //this.nbPionsMangesJ1.setText("      nombre de pions manges : "+nom);
@@ -147,7 +203,7 @@ public class maFenetreScore extends JFrame{
             this.nbPionsRestantsJ2.setText("      nombre de pions restants : "+res);
         }
     }
-    
+    //Methode afin de savoir qui doit jouer
     public void setTour(boolean turno){
         if(turn.equals("Blanc")){
             if(!turno){

@@ -20,6 +20,7 @@ public class Case extends JPanel {
     public Case(int u){
         setLayout(new GridLayout(1,0));
         this.couleur=u;
+        //couleur de la case selon sa position
         if(u==0){
             setBackground(Color.DARK_GRAY);
         }else if(u==1){

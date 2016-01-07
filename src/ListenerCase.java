@@ -14,7 +14,7 @@ public class ListenerCase implements MouseListener{
         this.plateau = plateau;
     }
 
-
+    //ensemble des méthodes relatifs aux déplacements et clics de la souris
     public void mouseClicked(MouseEvent arg0) {
     
     }
