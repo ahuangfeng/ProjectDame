@@ -37,7 +37,7 @@ public class maFenetreScore extends JFrame{
     public static int nbPionAvalesJ1;
 	
     public maFenetreScore(String nom1, String nom2, FenetreInit ini){
-	
+	super("Jeu de Dame");
         //définir la taille et la fermeture par défaut
         setSize(800,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
