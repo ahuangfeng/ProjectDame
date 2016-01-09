@@ -44,8 +44,10 @@ public class maFenetreScore extends JFrame{
     
     private JButton btnFinDeJeu;
     private EcouteurBoutonFinDeJeu ecFinJeu;
-    private Plateau plat;
+    public Plateau plat;
     private String turn;
+    private String j1;
+    private String j2;
 	
     public static int nbPionAvalesJ1;
     
@@ -53,6 +55,10 @@ public class maFenetreScore extends JFrame{
 	
     public maFenetreScore(String nom1, String nom2, FenetreInit ini){
 	super("Jeu de Dame");
+		
+		j1 = nom1;
+		j2 = nom2;
+		
         //définir la taille et la fermeture par défaut
         setSize(800,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,7 +66,7 @@ public class maFenetreScore extends JFrame{
         monPanelAffichageDonnees = new JPanel(new GridLayout(17,1));
         PanelGlobalScore = new JPanel(new BorderLayout());
         //creer plateau
-        this.plat = new Plateau(this,ini);
+        this.plat = new Plateau(this,ini, j1,j2);
         plat.initialiser();
         PanelGlobalScore.add(plat,BorderLayout.CENTER);
         
