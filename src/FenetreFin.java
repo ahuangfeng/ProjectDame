@@ -42,7 +42,8 @@ public class FenetreFin extends JFrame {
         super("Fin de la Partie");
 
         etiquette = new JLabel("FELICITATIONS !!! ");
-
+        etiquette.setFont( new Font( Font.SERIF, Font.BOLD, 55 ) );
+        etiquette.setForeground( Color.BLUE );
         boutonRejouer = new JButton("Rejouer");
         boutonNouvellePartie = new JButton("Nouvelle Partie");
         quitter = new JButton("Quitter le jeu");
