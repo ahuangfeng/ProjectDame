@@ -50,10 +50,7 @@ public class FenetreFin extends JFrame{
         pMilieu = new JPanel(new GridLayout(3,1));
         pHaut = new JPanel(new FlowLayout());
         cadrePrincipal=new JPanel(new GridLayout(7,1));
-		
-		
-	
-		
+
         //gagnant = new JLabel(this.maFenetreScore.vainqueur+" a remporte la partie ! ");
         gagnant = new JLabel(winnerOfTheGame+" a remporte la partie ! ");
         statistique1 = new JLabel(winnerOfTheGame+"*Joueur*  a mange * * pions");

@@ -11,7 +11,7 @@ public class EcouteurBoutonNouvellePartie implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae){
-		new FenetreInit();
+        new FenetreInit();
     }
 	
 }
