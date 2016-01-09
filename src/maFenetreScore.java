@@ -48,7 +48,7 @@ public class maFenetreScore extends JFrame{
         j2 = nom2;
 		
         //définir la taille et la fermeture par défaut
-        setSize(800,600);
+        setSize(830,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         monPanelAffichageDonnees = new JPanel(new GridLayout(17,1));
