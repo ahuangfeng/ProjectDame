@@ -5,6 +5,9 @@ import java.util.LinkedList;
 //import java.util.TimerTask;
 import java.awt.event.*;
 import java.lang.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.lang.Thread;
 
 
 public class maFenetreScore extends JFrame{
@@ -23,16 +26,16 @@ public class maFenetreScore extends JFrame{
     private JLabel tour;
     
     //Variable pour le Timer
-    public static int heure=0;
-    public static int minute =0;
-    public static int seconde =0;
+    private static int heure=0;
+    private static int minute =0;
+    private static int seconde =0;
 	
-	//Panel pour le Timer
-	public JLabel LabelTemps;
-	public JButton boutonDebutChronometre;
-	public JPanel PanelChronometre;
-	public Timer timer1;
-	private EcouteurChronometre ecChronometre;
+    //Panel pour le Timer
+    public JLabel LabelTemps;
+    public JButton boutonDebutChronometre;
+    private JPanel PanelChronometre;
+    public Timer timer1;
+    private EcouteurChronometre ecChronometre;
 
 	
     private int nbMangesJ1 =0;
@@ -50,6 +53,7 @@ public class maFenetreScore extends JFrame{
     private String turn;
 	
     public static int nbPionAvalesJ1;
+    private Crono temps;
 	
     public maFenetreScore(String nom1, String nom2, FenetreInit ini){
 	super("Jeu de Dame");
@@ -68,41 +72,38 @@ public class maFenetreScore extends JFrame{
         btnFinDeJeu = new JButton("Fin du jeu");
         btnFinDeJeu.addActionListener(ecFinJeu);
 
-//instancier des variables pour le Timer
-		//ecChronometre = new EcouteurChronometre(this);
-		
-		
-		int delais =1000;
-		ActionListener tache_timer;
-		
-		tache_timer = new ActionListener(){
-			public void actionPerformed(ActionEvent e1)
-			{
-				seconde++;
-				if(seconde==60)
-				{
-					seconde=0;
-					minute++;
-				}
-				if(minute==60)
-				{
-					minute=0;
-					heure++;
-				}
-				LabelTemps.setText(heure+":"+minute+":"+seconde);/* rafraichir le label */
-				
-			}
-		};
-	
-		timer1 = new Timer(delais,tache_timer);
-		
-		LabelTemps = new JLabel("Temps ecoule : "+heure+":"+minute+":"+seconde);
-		boutonDebutChronometre = new JButton ("Start");
-		PanelChronometre= new JPanel();
-		boutonDebutChronometre.addActionListener(ecChronometre);
-		
-		PanelChronometre.add(LabelTemps);
-		PanelChronometre.add(boutonDebutChronometre);
+        //instancier des variables pour le Timer
+        ecChronometre = new EcouteurChronometre(this);
+
+        //int delais =1000;
+        /*ActionListener tache_timer;
+
+        tache_timer = new ActionListener(){
+            public void actionPerformed(ActionEvent e1){
+                seconde++;
+                if(seconde==60){
+                    seconde=0;
+                    minute++;
+                }
+                if(minute==60){
+                    minute=0;
+                    heure++;
+                }
+                LabelTemps.setText(heure+":"+minute+":"+seconde);/* rafraichir le label 
+                System.out.println(heure+":"+minute+":"+seconde);
+            }
+        };*/
+
+        //timer1 = new Timer(delais,tache_timer);
+        this.temps = new Crono();
+        
+        LabelTemps = new JLabel("Temps ecoule : "+heure+":"+minute+":"+seconde);
+        boutonDebutChronometre = new JButton ("Start");
+        PanelChronometre= new JPanel();
+        boutonDebutChronometre.addActionListener(ecChronometre);
+
+        PanelChronometre.add(LabelTemps);
+        PanelChronometre.add(boutonDebutChronometre);
 
         nomJoueurUn = new JLabel("      "+nom1);
         //a modifier avec la classe joueur
@@ -178,9 +179,53 @@ public class maFenetreScore extends JFrame{
 
         //rendre la fenêtre visible
         setVisible(true);
-        
-        
     }
+    
+    public Crono getCrono(){
+        return this.temps;
+    }
+    
+    public void setTemps(int sec){
+        int segondesss = sec;
+        int minutes1=0;
+        int heure1=0;
+        for(int k=segondesss;k>=60;k=k-60){
+            minutes1++;
+            segondesss=segondesss-60;
+        }
+        for(int k=minutes1;k>=60;k=k-60){
+            heure1++;
+            minutes1=minutes1-60;
+        }
+        this.seconde=segondesss;
+        this.minute=minutes1;
+        this.heure=heure1;
+        this.LabelTemps.setText("Temps ecoule : "+heure+":"+minute+":"+seconde);
+    }
+    public void allerCrono(){
+        while(true){
+            this.PanelChronometre.repaint();
+            setTemps(this.temps.getSegundos());
+            Thread.sleep(1000);
+            setVisible(true);
+        }
+    }
+    
+    public int getSeconde(){
+        return this.seconde;
+    }
+    public int getMinute(){
+        return this.minute;
+    }
+    public int getHeure(){
+        return this.heure;
+    }
+    /*
+    private static void delaySeconde(){
+        try{
+            Thread.sleep(1000);
+        }catch(InterruptedException e){}
+    }*/
     
     public JPanel getPanelScore(){
         return this.PanelGlobalScore;
