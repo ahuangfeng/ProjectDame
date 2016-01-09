@@ -11,7 +11,7 @@ public class EcouteurBoutonFinDeJeu implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae){
-        new FenetreFin();
+        new FenetreFin(this.fen.plat.joueurGagnant);
     }
 	
 }

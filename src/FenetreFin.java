@@ -12,7 +12,7 @@ public class FenetreFin extends JFrame{
     private JPanel pBas;
     private JPanel pMilieu;
 
-    private JLabel vainqueur;
+    private JLabel gagnant;
     private JLabel statistique1;
     private JLabel statistique2;
 
@@ -33,8 +33,10 @@ public class FenetreFin extends JFrame{
     private EcouteurBoutonFerme EcouteurBtnClose;
     private EcouteurBoutonNouvellePartie EcouteurBtnNewPartie;
     private EcouteurBoutonRejouer EcouteurBtnRejouer;
+    
+    private String winnerOfTheGame;
 
-    public FenetreFin(){
+    public FenetreFin(String winnerOfTheGame){
         super("Fin de la Partie");
 
         etiquette = new JLabel("FELICITATIONS !!! ");
@@ -48,11 +50,14 @@ public class FenetreFin extends JFrame{
         pMilieu = new JPanel(new GridLayout(3,1));
         pHaut = new JPanel(new FlowLayout());
         cadrePrincipal=new JPanel(new GridLayout(7,1));
-
-
-        vainqueur = new JLabel("*Joueur 1* a remporte la partie ! ");
-        statistique1 = new JLabel("*Joueur* a remporte * * parties et a mange * * pions");
-        statistique2 = new JLabel("*Joueur* a remporte * * parties et a mange * * pions");
+		
+		
+	
+		
+        //gagnant = new JLabel(this.maFenetreScore.vainqueur+" a remporte la partie ! ");
+        gagnant = new JLabel(winnerOfTheGame+" a remporte la partie ! ");
+        statistique1 = new JLabel(winnerOfTheGame+"*Joueur*  a mange * * pions");
+        statistique2 = new JLabel("*Joueur*  a mange * * pions");
 
         //création panneaux vides
         videRejouer = new JPanel();
@@ -72,7 +77,7 @@ public class FenetreFin extends JFrame{
         videNouvellePartie.add(boutonNouvellePartie);
         videQuitter.add(quitter);
 
-        videVainqueur.add(vainqueur);
+        videVainqueur.add(gagnant);
         videStatistique1.add(statistique1);
         videStatistique2.add(statistique2);
 
@@ -113,5 +118,6 @@ public class FenetreFin extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
+    
 
 }

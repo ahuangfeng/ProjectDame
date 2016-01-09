@@ -4,5 +4,6 @@ public class TestLanceur{
             new FenetreInit();
             //new Lanceur();
             //new FenetreFin();
+           
     } 
 }

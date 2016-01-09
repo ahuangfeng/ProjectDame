@@ -16,10 +16,12 @@ public class Plateau extends JPanel{
     private maFenetreScore mfs;
     boolean tiro;
     private FenetreInit ini;
+    public String joueurGagnant;
+    private String winner;
 
     //private boolean deplacementAutorise;
 
-    public Plateau(maFenetreScore fenetr,FenetreInit init) {
+    public Plateau(maFenetreScore fenetr,FenetreInit init, String nomNum1, String nomNum2) {
         this.mfs = fenetr;
         this.tiro=true;
         this.ini=init;
@@ -210,12 +212,28 @@ public class Plateau extends JPanel{
                 }else{
                     nbPionsSautesJ2++;
                 }
+                if(nbPionsSautesJ1<nbPionsSautesJ2){
+						 joueurGagnant=this.ini.getSaisieNom1();
+				}
+				if(nbPionsSautesJ2<nbPionsSautesJ1){
+						 joueurGagnant=this.ini.getSaisieNom2();
+				}
+               
                 this.mfs.setPionsMangesJ1(nbPionsSautesJ1,22-nbPionsSautesJ1);
                 this.mfs.setPionsMangesJ2(nbPionsSautesJ2,22-nbPionsSautesJ2);
                 //System.out.println(nbPionsSautes);
                 if(nbPionsSautesJ1==22 || nbPionsSautesJ2==22){
                     //affichage FenetreFin si tout les pions ont ete manges
-                    new FenetreFin();
+                    if(nbPionsSautesJ1==22){
+						 joueurGagnant=this.ini.getSaisieNom1();
+						 //new FenetreFin();
+					}
+					if(nbPionsSautesJ2==22){
+						 joueurGagnant=this.ini.getSaisieNom2();
+						 //new FenetreFin();
+					}
+                   new FenetreFin(joueurGagnant); 
+                
                 }
             }
 

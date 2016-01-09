@@ -19,8 +19,6 @@ public class maFenetreScore extends JFrame{
     private JLabel nbPionsRestantsJ1;
     private JLabel nbPionsMangesJ2;
     private JLabel nbPionsRestantsJ2;
-    private JLabel phraseNbPartiJ1;
-    private JLabel phraseNbPartiJ2;
     private JLabel tempsEcoule;
     private JLabel vide;
     private JLabel tour;
@@ -38,10 +36,10 @@ public class maFenetreScore extends JFrame{
     private EcouteurChronometre ecChronometre;
 
 	
-    private int nbMangesJ1 =0;
+    public  static int nbMangesJ1 =0;
     private int nbRestantJ1=22;
     
-    private int nbMangesJ2 =0;
+    public static int nbMangesJ2 =0;
     private int nbRestantJ2=22;
 	
     public JPanel monPanelAffichageDonnees;
@@ -49,14 +47,22 @@ public class maFenetreScore extends JFrame{
     
     private JButton btnFinDeJeu;
     private EcouteurBoutonFinDeJeu ecFinJeu;
-    private Plateau plat;
+    public Plateau plat;
     private String turn;
+    private String j1;
+    private String j2;
 	
     public static int nbPionAvalesJ1;
     private Crono temps;
+    
+    public static String vainqueur;
 	
     public maFenetreScore(String nom1, String nom2, FenetreInit ini){
 	super("Jeu de Dame");
+		
+		j1 = nom1;
+		j2 = nom2;
+		
         //définir la taille et la fermeture par défaut
         setSize(800,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -64,7 +70,7 @@ public class maFenetreScore extends JFrame{
         monPanelAffichageDonnees = new JPanel(new GridLayout(17,1));
         PanelGlobalScore = new JPanel(new BorderLayout());
         //creer plateau
-        this.plat = new Plateau(this,ini);
+        this.plat = new Plateau(this,ini, j1,j2);
         plat.initialiser();
         PanelGlobalScore.add(plat,BorderLayout.CENTER);
         
@@ -122,14 +128,20 @@ public class maFenetreScore extends JFrame{
         nbPionsMangesJ1 = new JLabel("      Nombre de pions manges : "+this.nbMangesJ1);
         
         nbPionsRestantsJ1 = new JLabel("      Nombre de pions restants : "+nbRestantJ1);
-
+		
+		
+		if(nbMangesJ1<nbMangesJ2){
+			vainqueur = nom2;
+		}else{
+			vainqueur = nom1;
+		}
+		
         nomJoueurDeux = new JLabel("      "+nom2);
         //a modifier avec la classe joueur
         nbPionsMangesJ2 = new JLabel("      Nombre de pions manges : "+this.nbMangesJ2);
         nbPionsRestantsJ2 = new JLabel("      Nombre de pions restants : "+nbRestantJ2);
 
-        phraseNbPartiJ1 = new JLabel("      "+nom1+" a gagne + *** + partie(s)");
-        phraseNbPartiJ2 = new JLabel("      "+nom2+" a gagne + *** + partie(s)");
+      
         this.turn="";
         if(this.plat.getTour()==true){
             turn = "Blanc";
@@ -151,8 +163,8 @@ public class maFenetreScore extends JFrame{
         monPanelAffichageDonnees.add(vide);
         monPanelAffichageDonnees.add(vide);
         monPanelAffichageDonnees.add(vide);
-        monPanelAffichageDonnees.add(phraseNbPartiJ1);
-        monPanelAffichageDonnees.add(phraseNbPartiJ2);
+        monPanelAffichageDonnees.add(vide);
+        monPanelAffichageDonnees.add(vide);
         monPanelAffichageDonnees.add(vide);
         monPanelAffichageDonnees.add(vide);
         monPanelAffichageDonnees.add(this.tour);
@@ -206,7 +218,7 @@ public class maFenetreScore extends JFrame{
         while(true){
             this.PanelChronometre.repaint();
             setTemps(this.temps.getSegundos());
-            Thread.sleep(1000);
+            //Thread.sleep(1000);
             setVisible(true);
         }
     }
