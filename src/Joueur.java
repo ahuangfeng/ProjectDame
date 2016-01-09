@@ -9,29 +9,26 @@
  * @author AlexHF
  */
 public class Joueur {
-	
+
     private String nom;
     private int age;
     private int couleur;
-	
-	
-    public Joueur(String nom, int age, int couleur){
-        this.nom=nom;
-        this.age=age;
-        this.couleur=couleur;
+
+    public Joueur(String nom, int age, int couleur) {
+        this.nom = nom;
+        this.age = age;
+        this.couleur = couleur;
     }
-	
-    public String getNom(){
+
+    public String getNom() {
         return this.nom;
     }
-	
-    public int getAge(){
+
+    public int getAge() {
         return this.age;
     }
 
-    public int getCouleur(){
+    public int getCouleur() {
         return this.couleur;
     }
 }
-
-

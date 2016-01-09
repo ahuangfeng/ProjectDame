@@ -11,8 +11,9 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class FenetreInit extends JFrame{
-	//création des éléments constitutifs de la fenetre
+public class FenetreInit extends JFrame {
+    //création des éléments constitutifs de la fenetre
+
     private JLabel titre = new JLabel("JEU DE DAME");
     private JLabel joueur1 = new JLabel("Joueur 1 ");
     private JLabel joueur2 = new JLabel("Joueur 2 ");
@@ -24,42 +25,42 @@ public class FenetreInit extends JFrame{
     private JTextField nom2 = new JTextField(5);
     private JTextField textAge1 = new JTextField(5);
     private JTextField textAge2 = new JTextField(5);
-    private String[] options = {"Marron","Blanc"};
-    private JComboBox liste=new JComboBox(options);
+    private String[] options = {"Marron", "Blanc"};
+    private JComboBox liste = new JComboBox(options);
     private JButton regles = new JButton("Regle du jeu");
     private JButton commencer = new JButton("Commence le jeu");
     private JLabel phrase = new JLabel("Info : le joueur le plus jeune commencera la partie ");
-    
+
     private EcouteurBoutonRegle ecouteurBtnRegle;
     private EcouteurBoutonCommencerJeu ecouteurBtnCommencerLeJeu;
-    
-    public FenetreInit(){
+
+    public FenetreInit() {
         super("Jeu de dame");
         ecouteurBtnRegle = new EcouteurBoutonRegle(this);
         regles.addActionListener(ecouteurBtnRegle);
         ecouteurBtnCommencerLeJeu = new EcouteurBoutonCommencerJeu(this);
         commencer.addActionListener(ecouteurBtnCommencerLeJeu);
-        
+
         //création des éléments constructifs de la fenetre
         JPanel cadre = new JPanel(new BorderLayout());
         JPanel tete = new JPanel(new FlowLayout());
-        JPanel jou1= new JPanel(new FlowLayout());
-        JPanel jou2= new JPanel(new FlowLayout());
-        JPanel grid = new JPanel(new GridLayout(7,1));
+        JPanel jou1 = new JPanel(new FlowLayout());
+        JPanel jou2 = new JPanel(new FlowLayout());
+        JPanel grid = new JPanel(new GridLayout(7, 1));
         JPanel ligne1 = new JPanel(new FlowLayout());
         JPanel ligne2 = new JPanel(new FlowLayout());
         JPanel frase = new JPanel(new FlowLayout());
         JPanel fin = new JPanel(new FlowLayout());
         ligne1.add(this.pseudo);
-        ligne1.add(this.nom); 
+        ligne1.add(this.nom);
         ligne1.add(this.age1);
         ligne1.add(this.textAge1);
         ligne1.add(this.liste);
         ligne2.add(this.pseudo2);
-        ligne2.add(this.nom2); 
+        ligne2.add(this.nom2);
         ligne2.add(this.age2);
         ligne2.add(this.textAge2);
-         
+
         tete.add(this.titre);
         grid.add(tete);
         jou1.add(this.joueur1);
@@ -73,44 +74,42 @@ public class FenetreInit extends JFrame{
         fin.add(this.regles);
         fin.add(this.commencer);
         grid.add(fin);
-        
-        cadre.add(grid,BorderLayout.CENTER);
-        
+
+        cadre.add(grid, BorderLayout.CENTER);
+
         setContentPane(cadre);
-        setSize(600,400);
+        setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-        
+
     }
-    
-    
-    public String getSaisieNom1(){
+
+    public String getSaisieNom1() {
         return (nom.getText());
     }
-	
-    public String getSaisieNom2(){
+
+    public String getSaisieNom2() {
         return (nom2.getText());
     }
-    
-    public String getTextAge1(){
+
+    public String getTextAge1() {
         return textAge1.getText();
     }
-    
-    public String getTextAge2(){
+
+    public String getTextAge2() {
         return textAge2.getText();
     }
 
-    public int getSaisieAge1(){
+    public int getSaisieAge1() {
         return Integer.parseInt(textAge1.getText());
     }
-	
-    public int getSaisieAge2(){
+
+    public int getSaisieAge2() {
         return Integer.parseInt(textAge2.getText());
     }
-	
+
     public int getSelectedIndex() {
         return liste.getSelectedIndex();
     }
-    
-}
 
+}

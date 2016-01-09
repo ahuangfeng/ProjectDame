@@ -1,7 +1,9 @@
+
 import javax.swing.*;
 import java.awt.*;
 
-public class FenetreFin extends JFrame{
+public class FenetreFin extends JFrame {
+
     //Création des éléments de la fenetre
     private JButton boutonRejouer;
     private JButton boutonNouvellePartie;
@@ -28,32 +30,32 @@ public class FenetreFin extends JFrame{
     private JPanel vide1;
     private JPanel vide2;
     private JPanel vide3;
-    
+
     //création des écouteurs
     private EcouteurBoutonFerme EcouteurBtnClose;
     private EcouteurBoutonNouvellePartie EcouteurBtnNewPartie;
     private EcouteurBoutonRejouer EcouteurBtnRejouer;
-    
+
     private String winnerOfTheGame;
 
-    public FenetreFin(String winnerOfTheGame){
+    public FenetreFin(String winnerOfTheGame) {
         super("Fin de la Partie");
 
         etiquette = new JLabel("FELICITATIONS !!! ");
 
-        boutonRejouer = new JButton ("Rejouer");
-        boutonNouvellePartie= new JButton("Nouvelle Partie" );
+        boutonRejouer = new JButton("Rejouer");
+        boutonNouvellePartie = new JButton("Nouvelle Partie");
         quitter = new JButton("Quitter le jeu");
 
         //instanciation des éléments constructifs de la fenetre
-        pBas= new JPanel(new GridLayout(3,1));
-        pMilieu = new JPanel(new GridLayout(3,1));
+        pBas = new JPanel(new GridLayout(3, 1));
+        pMilieu = new JPanel(new GridLayout(3, 1));
         pHaut = new JPanel(new FlowLayout());
-        cadrePrincipal=new JPanel(new GridLayout(7,1));
+        cadrePrincipal = new JPanel(new GridLayout(7, 1));
 
         //gagnant = new JLabel(this.maFenetreScore.vainqueur+" a remporte la partie ! ");
-        gagnant = new JLabel(winnerOfTheGame+" a remporte la partie ! ");
-        statistique1 = new JLabel(winnerOfTheGame+"*Joueur*  a mange * * pions");
+        gagnant = new JLabel(winnerOfTheGame + " a remporte la partie ! ");
+        statistique1 = new JLabel(winnerOfTheGame + "*Joueur*  a mange * * pions");
         statistique2 = new JLabel("*Joueur*  a mange * * pions");
 
         //création panneaux vides
@@ -91,7 +93,6 @@ public class FenetreFin extends JFrame{
         pMilieu.add(videStatistique1);
         pMilieu.add(videStatistique2);
 
-
         // Création du cadre principal
         cadrePrincipal.add(vide);
         cadrePrincipal.add(pHaut);
@@ -100,7 +101,6 @@ public class FenetreFin extends JFrame{
         cadrePrincipal.add(vide2);
         cadrePrincipal.add(pBas);
         cadrePrincipal.add(vide3);
-
 
         EcouteurBtnClose = new EcouteurBoutonFerme(this);
         EcouteurBtnNewPartie = new EcouteurBoutonNouvellePartie(this);
@@ -111,10 +111,9 @@ public class FenetreFin extends JFrame{
         boutonNouvellePartie.addActionListener(EcouteurBtnNewPartie);
 
         setContentPane(cadrePrincipal);
-        setSize(700,700);
+        setSize(700, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
-    
 
 }

@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -25,7 +26,7 @@ public class Cronometre extends JPanel implements Runnable, ActionListener {
     }
 
     public void run() {
-        Integer minutes = 0, secondes = 0, milesimes = 0 , heures = 0;
+        Integer minutes = 0, secondes = 0, milesimes = 0, heures = 0;
         //
         //min est minutes, seg est secondes et mil sont des milesimes de seconde, heur = heures
         String min = "", seg = "", mil = "", heur = "";
@@ -39,7 +40,7 @@ public class Cronometre extends JPanel implements Runnable, ActionListener {
                     if (secondes == 60) {
                         secondes = 0;
                         minutes++;
-                        if(minutes == 60){
+                        if (minutes == 60) {
                             minutes = 0;
                             heures++;
                         }
@@ -61,7 +62,7 @@ public class Cronometre extends JPanel implements Runnable, ActionListener {
                 } else {
                     seg = secondes.toString();
                 }
-                
+
                 if (milesimes < 10) {
                     mil = "00" + milesimes;
                 } else if (milesimes < 100) {
@@ -71,9 +72,9 @@ public class Cronometre extends JPanel implements Runnable, ActionListener {
                 }
 
                 //on change l'etiquette
-                temps.setText("Temps ecoule : " +heur+":"+ min + ":" + seg + ":" + mil);
+                temps.setText("Temps ecoule : " + heur + ":" + min + ":" + seg + ":" + mil);
             }
-            this.tempsFinal=heur+":"+ min + ":" + seg + ":" + mil;
+            this.tempsFinal = heur + ":" + min + ":" + seg + ":" + mil;
         } catch (Exception e) {
         }
         //temps.setText("Temps ecoule : 00:00:000");
@@ -89,7 +90,7 @@ public class Cronometre extends JPanel implements Runnable, ActionListener {
                     initCrono();
                     this.btn.setText("Stop");
                 }
-            }else if(btn.getText().equals("Stop")){
+            } else if (btn.getText().equals("Stop")) {
                 if (onoff == 1) {
                     onoff = 0;
                     stopCrono();
@@ -111,8 +112,8 @@ public class Cronometre extends JPanel implements Runnable, ActionListener {
     public void stopCrono() {
         cronoActive = false;
     }
-    
-    public String getTemps(){
+
+    public String getTemps() {
         return this.tempsFinal;
     }
 
