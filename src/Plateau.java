@@ -196,27 +196,6 @@ public class Plateau extends JPanel{
     public void deplacer(Case case1){
         //permet de placer le pion dans la case sélectionné
         //Création de la dame si le pion se place sur la dernière ligne
-        /*if(case1==getCase(0,0)){
-            if(!tour0){
-                case1.add(creerDame(0,true));
-                this.caseActive.removeAll();
-                this.caseActive.repaint();
-                this.caseActive=null;
-                //this.caseActive=case1;
-                case1.repaint();
-            }
-        }*/
-        /*eelse if(case1==getCase(0,0)||case1==getCase(1,0)||case1==getCase(2,0)||case1==getCase(3,0)||case1==getCase(4,0)||case1==getCase(5,0)||case1==getCase(6,0)||case1==getCase(7,0)||case1==getCase(8,0)||case1==getCase(9,0)||case1==getCase(10,0)){
-            if(tour0){
-                case1.add(creerDame(0,true));
-                this.caseActive.removeAll();
-                this.caseActive.repaint();
-                this.caseActive=null;
-                //this.caseActive=case1;
-                case1.repaint();
-            }
-        }*/
-        /*else{*/
             case1.add(this.caseActive.getComponent(0)); 
 
             //permet de supprimer sur le plateau le pion sauté
@@ -248,31 +227,17 @@ public class Plateau extends JPanel{
             this.caseActive.repaint();
             this.caseActive=null;
             case1.repaint();
-            //
-            //nbPionsSautes++;
-            //System.out.println(nbPionsSautes);
-            //
-
             if(getLigne(case1)==0){
                 Pion p=(Pion)(case1.getComponent(0));
                 p.setMonte(false);
-                //
-                //nbPionsSautes++;
-                //System.out.println(nbPionsSautes);
-                //
             }
             if(getLigne(case1)==Taille-1){
                 Pion p=(Pion)(case1.getComponent(0));
                 p.setMonte(true);
-                //
-                //nbPionsSautes++;
-                //System.out.println(nbPionsSautes);
-                //
             }
             
             this.mfs.setTour(this.tiro);
             this.tiro=!this.tiro;
-        //}
     }
 
     private int getLigne(Case case1){

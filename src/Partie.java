@@ -14,9 +14,15 @@ public class Partie {
     private Joueur joueur2;
 
 
+<<<<<<< HEAD
     public Partie(Joueur vainqueur){
         this.vainqueur= vainqueur;   
         
+=======
+    public Partie(Joueur jug1,Joueur jug2){
+        this.joueur1=jug1;
+        this.joueur2=jug2;
+>>>>>>> origin/master
     }	
     
     /*public Joueur estLeVainqueur(){
