@@ -182,6 +182,13 @@ public class maFenetreScore extends JFrame {
     public Plateau getPlateau() {
         return this.plat;
     }
+    
+    public void resetNbManges(){
+        this.nbMangesJ1=0;
+        this.nbRestantJ1 = 22;
+        this.nbMangesJ2 = 0;
+        this.nbRestantJ2 = 22;
+    }
 
 //losange vide : pas de forte dependance
 //losange plein : forte dependance entre le compose et le composant 

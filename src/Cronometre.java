@@ -110,6 +110,7 @@ public class Cronometre extends JPanel implements Runnable, ActionListener {
     //Esto es para parar el cronometro
     public void stopCrono() {
         cronoActive = false;
+        onoff = 0;
     }
 
     public String getTemps() {

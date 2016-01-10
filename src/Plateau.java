@@ -13,13 +13,12 @@ public class Plateau extends JPanel {
     private final int Taille = 11;
     private Case caseActive;
     private boolean tour0;
-    private static int nbPionsSautesJ1 = 0;
-    private static int nbPionsSautesJ2 = 0;
+    private int nbPionsSautesJ1 = 0;
+    private int nbPionsSautesJ2 = 0;
     private maFenetreScore mfs;
     boolean tiro;
     private FenetreInit ini;
     public String joueurGagnant;
-    private String winner;
 
     //private boolean deplacementAutorise;
     public Plateau(maFenetreScore fenetr, FenetreInit init, String nomNum1, String nomNum2) {
@@ -68,6 +67,8 @@ public class Plateau extends JPanel {
             getCase(i).add(creerPion(0, false));
             getCase(this.Taille * this.Taille - i - 1).add(creerPion(1, true));
         }
+        resetNbManges();
+        //this.repaint();
     }
 
     public Case getCase(int i) {
@@ -280,5 +281,10 @@ public class Plateau extends JPanel {
 
     public boolean getTour() {
         return this.tour0;
+    }
+    
+    public void resetNbManges(){
+        this.mfs.setPionsMangesJ1(0, 22);
+        this.mfs.setPionsMangesJ2(0, 22);
     }
 }

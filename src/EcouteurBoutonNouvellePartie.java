@@ -13,6 +13,7 @@ public class EcouteurBoutonNouvellePartie implements ActionListener {
 
     public void actionPerformed(ActionEvent ae) {
         new FenetreInit();
+        this.fen.setVisible(false);
     }
 
 }

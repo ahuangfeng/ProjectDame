@@ -12,7 +12,9 @@ public class EcouteurBoutonCommencerJeu implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {
-        new maFenetreScore(this.fen.getSaisieNom1(), this.fen.getSaisieNom2(), this.fen);
+        maFenetreScore ola = new maFenetreScore(this.fen.getSaisieNom1(), this.fen.getSaisieNom2(), this.fen);
+        ola.getPlateau().resetNbManges();
+        this.fen.setVisible(false);
     }
 
 }
