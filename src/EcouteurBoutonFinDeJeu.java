@@ -12,10 +12,9 @@ public class EcouteurBoutonFinDeJeu implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {
-        new FenetreFin(this.fen.plat.joueurGagnant);
+        new FenetreFin(this.fen.plat.joueurGagnant, this.fen.getCrono().getTemps(), this.fen.getPionsMangesGagnant());
         this.fen.getCrono().stopCrono();
         this.fen.setVisible(false);
-        //this.fen.resetNbManges();
     }
 
 }

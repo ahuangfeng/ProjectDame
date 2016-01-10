@@ -146,18 +146,14 @@ public class maFenetreScore extends JFrame {
     public void setPionsMangesJ1(int nom, int res) {
         if (nom != this.nbMangesJ1) {
             this.nbPionsMangesJ1.setText("      nombre de pions manges : " + nom);
-            //this.nbPionsMangesJ2.setText("      nombre de pions manges : "+nom);
             this.nbPionsRestantsJ1.setText("      nombre de pions restants : " + res);
-            //this.nbPionsRestantsJ2.setText("      nombre de pions restants : "+res);
         }
     }
 
     //méthode pour mettre à jour le nombre de pions mangés du joueur 2
     public void setPionsMangesJ2(int nom, int res) {
         if (nom != this.nbMangesJ1) {
-            //this.nbPionsMangesJ1.setText("      nombre de pions manges : "+nom);
             this.nbPionsMangesJ2.setText("      nombre de pions manges : " + nom);
-            //this.nbPionsRestantsJ1.setText("      nombre de pions restants : "+res);
             this.nbPionsRestantsJ2.setText("      nombre de pions restants : " + res);
         }
     }
@@ -182,12 +178,27 @@ public class maFenetreScore extends JFrame {
     public Plateau getPlateau() {
         return this.plat;
     }
-    
-    public void resetNbManges(){
-        this.nbMangesJ1=0;
+
+    public void resetNbManges() {
+        this.nbMangesJ1 = 0;
         this.nbRestantJ1 = 22;
         this.nbMangesJ2 = 0;
         this.nbRestantJ2 = 22;
+    }
+
+    public void setDonnes(int nbSautesJ1, int nbSautesJ2) {
+        this.nbMangesJ1 = nbSautesJ1;
+        this.nbMangesJ2 = nbSautesJ2;
+    }
+
+    public int getPionsMangesGagnant() {
+        int res;
+        if (this.nbMangesJ1 > this.nbMangesJ2) {
+            res = this.nbMangesJ1;
+        } else {
+            res = this.nbMangesJ2;
+        }
+        return res;
     }
 
 //losange vide : pas de forte dependance

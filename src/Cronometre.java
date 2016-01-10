@@ -45,7 +45,7 @@ public class Cronometre extends JPanel implements Runnable, ActionListener {
                         }
                     }
                 }
-                //stetique
+                //stetique: quand le numero est d'un seul chiffre, ajouter un zero devant
                 if (heures < 10) {
                     heur = "0" + heures;
                 } else {
@@ -72,8 +72,8 @@ public class Cronometre extends JPanel implements Runnable, ActionListener {
 
                 //on change l'etiquette
                 temps.setText("Temps ecoule : " + heur + ":" + min + ":" + seg + ":" + mil);
+                this.tempsFinal = this.temps.getText();
             }
-            this.tempsFinal = heur + ":" + min + ":" + seg + ":" + mil;
         } catch (Exception e) {
         }
         //temps.setText("Temps ecoule : 00:00:000");
@@ -83,12 +83,14 @@ public class Cronometre extends JPanel implements Runnable, ActionListener {
         Object o = evt.getSource();
         if (o instanceof JButton) {
             JButton btn = (JButton) o;
+            //si le text du bouton est Start ou Restart, mettre le crono en marche
             if (btn.getText().equals("Start") || btn.getText().equals("Restart")) {
                 if (onoff == 0) {
                     onoff = 1;
                     initCrono();
                     this.btn.setText("Stop");
                 }
+                //si text du bouton = Stop, arretez le crono
             } else if (btn.getText().equals("Stop")) {
                 if (onoff == 1) {
                     onoff = 0;
@@ -99,20 +101,20 @@ public class Cronometre extends JPanel implements Runnable, ActionListener {
         }
     }
 
-    //Iniciar el cronometro poniendo cronoActive 
-    //en verdadero para que entre en el while
+    //methode pour initializer le crono
     public void initCrono() {
         cronoActive = true;
         fil = new Thread(this);
         fil.start();
     }
 
-    //Esto es para parar el cronometro
+    //arrete le crono
     public void stopCrono() {
         cronoActive = false;
         onoff = 0;
     }
 
+    //donne le temps final
     public String getTemps() {
         return this.tempsFinal;
     }

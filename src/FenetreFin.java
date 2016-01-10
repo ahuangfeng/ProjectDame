@@ -37,27 +37,30 @@ public class FenetreFin extends JFrame {
     private EcouteurBoutonRejouer EcouteurBtnRejouer;
 
     private String winnerOfTheGame;
+    private String temps;
 
-    public FenetreFin(String winnerOfTheGame) {
+    public FenetreFin(String winnerOfTheGame, String temps, int pionsManges) {
         super("Fin de la Partie");
-
+        //System.out.println(temps);
         etiquette = new JLabel("FELICITATIONS !!! ");
-        etiquette.setFont( new Font( Font.SERIF, Font.BOLD, 55 ) );
-        etiquette.setForeground( Color.BLUE );
+        etiquette.setFont(new Font(Font.SERIF, Font.BOLD, 55));
+        etiquette.setForeground(Color.BLUE);
         boutonRejouer = new JButton("Rejouer");
         boutonNouvellePartie = new JButton("Nouvelle Partie");
         quitter = new JButton("Quitter le jeu");
 
         //instanciation des éléments constructifs de la fenetre
         pBas = new JPanel(new GridLayout(3, 1));
-        pMilieu = new JPanel(new GridLayout(3, 1));
+        pMilieu = new JPanel(new GridLayout(4, 1));
         pHaut = new JPanel(new FlowLayout());
         cadrePrincipal = new JPanel(new GridLayout(7, 1));
 
         //gagnant = new JLabel(this.maFenetreScore.vainqueur+" a remporte la partie ! ");
         gagnant = new JLabel(winnerOfTheGame + " a remporte la partie ! ");
-        statistique1 = new JLabel(winnerOfTheGame + "*Joueur*  a mange * * pions");
+        statistique1 = new JLabel(winnerOfTheGame + " a mange " + pionsManges + " pions");
         statistique2 = new JLabel("*Joueur*  a mange * * pions");
+        this.temps = temps;
+        JLabel tempsJoue = new JLabel(this.temps);
 
         //création panneaux vides
         videRejouer = new JPanel();
@@ -66,6 +69,7 @@ public class FenetreFin extends JFrame {
         videVainqueur = new JPanel();
         videStatistique1 = new JPanel();
         videStatistique2 = new JPanel();
+        JPanel videStat3 = new JPanel(new FlowLayout());
 
         vide = new JPanel();
         vide1 = new JPanel();
@@ -80,6 +84,7 @@ public class FenetreFin extends JFrame {
         videVainqueur.add(gagnant);
         videStatistique1.add(statistique1);
         videStatistique2.add(statistique2);
+        videStat3.add(tempsJoue);
 
         // Création de pHaut
         pHaut.add(etiquette);
@@ -93,6 +98,7 @@ public class FenetreFin extends JFrame {
         pMilieu.add(videVainqueur);
         pMilieu.add(videStatistique1);
         pMilieu.add(videStatistique2);
+        pMilieu.add(videStat3);
 
         // Création du cadre principal
         cadrePrincipal.add(vide);

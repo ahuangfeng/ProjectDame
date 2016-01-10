@@ -212,6 +212,7 @@ public class Plateau extends JPanel {
 
             this.mfs.setPionsMangesJ1(nbPionsSautesJ1, 22 - nbPionsSautesJ1);
             this.mfs.setPionsMangesJ2(nbPionsSautesJ2, 22 - nbPionsSautesJ2);
+            this.mfs.setDonnes(nbPionsSautesJ1, nbPionsSautesJ2);
             //System.out.println(nbPionsSautes);
             if (nbPionsSautesJ1 == 22 || nbPionsSautesJ2 == 22) {
                 //affichage FenetreFin si tout les pions ont ete manges
@@ -223,7 +224,7 @@ public class Plateau extends JPanel {
                     joueurGagnant = this.ini.getSaisieNom2();
                     //new FenetreFin();
                 }
-                new FenetreFin(joueurGagnant);
+                new FenetreFin(joueurGagnant, this.mfs.getCrono().getTemps(), this.mfs.getPionsMangesGagnant());
 
             }
         }
@@ -282,8 +283,8 @@ public class Plateau extends JPanel {
     public boolean getTour() {
         return this.tour0;
     }
-    
-    public void resetNbManges(){
+
+    public void resetNbManges() {
         this.mfs.setPionsMangesJ1(0, 22);
         this.mfs.setPionsMangesJ2(0, 22);
     }
