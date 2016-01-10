@@ -38,7 +38,7 @@ public class FenetreFin extends JFrame {
 
     private String winnerOfTheGame;
 
-    public FenetreFin(String winnerOfTheGame) {
+    public FenetreFin(String winnerOfTheGame, String looserOfTheGame, int nbEatenJ1, int nbEatenJ2) {
         super("Fin de la Partie");
 
         etiquette = new JLabel("FELICITATIONS !!! ");
@@ -56,8 +56,8 @@ public class FenetreFin extends JFrame {
 
         //gagnant = new JLabel(this.maFenetreScore.vainqueur+" a remporte la partie ! ");
         gagnant = new JLabel(winnerOfTheGame + " a remporte la partie ! ");
-        statistique1 = new JLabel(winnerOfTheGame + "*Joueur*  a mange * * pions");
-        statistique2 = new JLabel("*Joueur*  a mange * * pions");
+        statistique1 = new JLabel(winnerOfTheGame + " a mange " + nbEatenJ2 +" pions");
+        statistique2 = new JLabel(looserOfTheGame+ "  a mange "+ nbEatenJ1+ " pions");
 
         //création panneaux vides
         videRejouer = new JPanel();
