@@ -67,12 +67,13 @@ public class maFenetreScore extends JFrame {
         nomJoueurUn = new JLabel("      " + this.j1);
         //Statistiques pions mangés
         this.nbMangesJ1 = plat.getNbPionsSautesJ1();
+        System.out.println(this.nbMangesJ1);
         this.nbRestantJ1 = this.nbRestantJ1 - this.nbMangesJ1;
         this.nbMangesJ2 = plat.getNbPionsSautesJ2();
         this.nbRestantJ2 = this.nbRestantJ2 - this.nbMangesJ2;
-        nbPionsMangesJ1 = new JLabel("      Nombre de pions manges : " + this.nbMangesJ1);
+        this.nbPionsMangesJ1 = new JLabel("      Nombre de pions manges : " + this.nbMangesJ1);
 
-        nbPionsRestantsJ1 = new JLabel("      Nombre de pions a eliminer restant : " + nbRestantJ1);
+        this.nbPionsRestantsJ1 = new JLabel("      Nombre de pions a eliminer restant : " + nbRestantJ1);
 
         nomJoueurDeux = new JLabel("      " + this.j2);
         //a modifier avec la classe joueur
