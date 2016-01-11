@@ -57,9 +57,9 @@ public class FenetreFin extends JFrame {
         cadrePrincipal = new JPanel(new GridLayout(7, 1));
 
         //gagnant = new JLabel(this.maFenetreScore.vainqueur+" a remporte la partie ! ");
-        gagnant = new JLabel(winnerOfTheGame + " a remporte la partie ! ");
-        statistique1 = new JLabel(winnerOfTheGame + " a mange " + nbEatenJ2 + " pions");
-        statistique2 = new JLabel(looserOfTheGame + "  a mange " + nbEatenJ1 + " pions");
+        gagnant = new JLabel(looserOfTheGame + " a remporte la partie ! ");
+        statistique1 = new JLabel( looserOfTheGame+ " a mange " + nbEatenJ2 + " pions");
+        statistique2 = new JLabel(winnerOfTheGame + "  a mange " + nbEatenJ1 + " pions");
         this.temps = temps;
         JLabel tempsJoue = new JLabel(this.temps);
 

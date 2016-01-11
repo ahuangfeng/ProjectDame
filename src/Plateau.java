@@ -23,7 +23,7 @@ public class Plateau extends JPanel {
     //private String winner;
 
     //private boolean deplacementAutorise;
-    public Plateau(maFenetreScore fenetr, FenetreInit init, String nomNum1, String nomNum2) {
+    public Plateau(maFenetreScore fenetr, FenetreInit init) {
         this.mfs = fenetr;
         this.tiro = true;
         this.ini = init;

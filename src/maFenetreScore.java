@@ -40,7 +40,7 @@ public class maFenetreScore extends JFrame {
     public static int nbPionAvalesJ1;
     private Cronometre temps;
 
-    public static String vainqueur;
+    //public static String vainqueur;
 
     public maFenetreScore(String nom1, String nom2, FenetreInit ini) {
         super("Jeu de Dame");
@@ -54,7 +54,7 @@ public class maFenetreScore extends JFrame {
         monPanelAffichageDonnees = new JPanel(new GridLayout(17, 1));
         PanelGlobalScore = new JPanel(new BorderLayout());
         //creer plateau
-        this.plat = new Plateau(this, ini, j1, j2);
+        this.plat = new Plateau(this, ini);
         plat.initialiser();
         PanelGlobalScore.add(plat, BorderLayout.CENTER);
 
@@ -64,7 +64,7 @@ public class maFenetreScore extends JFrame {
 
         this.temps = new Cronometre();
 
-        nomJoueurUn = new JLabel("      " + nom1);
+        nomJoueurUn = new JLabel("      " + this.j1);
         //Statistiques pions mangés
         this.nbMangesJ1 = plat.getNbPionsSautesJ1();
         this.nbRestantJ1 = this.nbRestantJ1 - this.nbMangesJ1;
@@ -72,18 +72,12 @@ public class maFenetreScore extends JFrame {
         this.nbRestantJ2 = this.nbRestantJ2 - this.nbMangesJ2;
         nbPionsMangesJ1 = new JLabel("      Nombre de pions manges : " + this.nbMangesJ1);
 
-        nbPionsRestantsJ1 = new JLabel("      Nombre de pions restants : " + nbRestantJ1);
+        nbPionsRestantsJ1 = new JLabel("      Nombre de pions a eliminer restant : " + nbRestantJ1);
 
-        if (nbMangesJ1 < nbMangesJ2) {
-            vainqueur = nom2;
-        } else {
-            vainqueur = nom1;
-        }
-
-        nomJoueurDeux = new JLabel("      " + nom2);
+        nomJoueurDeux = new JLabel("      " + this.j2);
         //a modifier avec la classe joueur
         nbPionsMangesJ2 = new JLabel("      Nombre de pions manges : " + this.nbMangesJ2);
-        nbPionsRestantsJ2 = new JLabel("      Nombre de pions restants : " + nbRestantJ2);
+        nbPionsRestantsJ2 = new JLabel("      Nombre de pions a eliminer restant : " + nbRestantJ2);
 
         this.turn = "";
         if (this.plat.getTour() == true) {
@@ -145,16 +139,16 @@ public class maFenetreScore extends JFrame {
     //méthode pour mettre à jour le nombre de pions mangés du joueur 1
     public void setPionsMangesJ1(int nom, int res) {
         if (nom != this.nbMangesJ1) {
-            this.nbPionsMangesJ1.setText("      nombre de pions manges : " + nom);
-            this.nbPionsRestantsJ1.setText("      nombre de pions restants : " + res);
+        this.nbPionsMangesJ1.setText("      Nombre de pions manges : " + nom);
+        this.nbPionsRestantsJ1.setText("      Nombre de pions a eliminer restant : " + res);
         }
     }
 
     //méthode pour mettre à jour le nombre de pions mangés du joueur 2
     public void setPionsMangesJ2(int nom, int res) {
         if (nom != this.nbMangesJ1) {
-            this.nbPionsMangesJ2.setText("      nombre de pions manges : " + nom);
-            this.nbPionsRestantsJ2.setText("      nombre de pions restants : " + res);
+            this.nbPionsMangesJ2.setText("      Nombre de pions manges : " + nom);
+            this.nbPionsRestantsJ2.setText("      Nombre de pions a eliminer restant : " + res);
         }
     }
 
