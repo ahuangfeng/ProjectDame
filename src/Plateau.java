@@ -13,12 +13,14 @@ public class Plateau extends JPanel {
     private final int Taille = 11;
     private Case caseActive;
     private boolean tour0;
-    private int nbPionsSautesJ1 = 0;
-    private int nbPionsSautesJ2 = 0;
+    public int nbPionsSautesJ1 = 0;
+    public int nbPionsSautesJ2 = 0;
     private maFenetreScore mfs;
     boolean tiro;
     private FenetreInit ini;
     public String joueurGagnant;
+    public String joueurPerdant;
+    //private String winner;
 
     //private boolean deplacementAutorise;
     public Plateau(maFenetreScore fenetr, FenetreInit init, String nomNum1, String nomNum2) {
@@ -205,9 +207,11 @@ public class Plateau extends JPanel {
             }
             if (nbPionsSautesJ1 < nbPionsSautesJ2) {
                 joueurGagnant = this.ini.getSaisieNom1();
+                joueurPerdant = this.ini.getSaisieNom2();
             }
             if (nbPionsSautesJ2 < nbPionsSautesJ1) {
                 joueurGagnant = this.ini.getSaisieNom2();
+                joueurPerdant = this.ini.getSaisieNom1();
             }
 
             this.mfs.setPionsMangesJ1(nbPionsSautesJ1, 22 - nbPionsSautesJ1);
@@ -218,14 +222,15 @@ public class Plateau extends JPanel {
                 //affichage FenetreFin si tout les pions ont ete manges
                 if (nbPionsSautesJ1 == 22) {
                     joueurGagnant = this.ini.getSaisieNom1();
+                    joueurPerdant = this.ini.getSaisieNom2();
                     //new FenetreFin();
                 }
                 if (nbPionsSautesJ2 == 22) {
                     joueurGagnant = this.ini.getSaisieNom2();
+                    joueurPerdant = this.ini.getSaisieNom1();
                     //new FenetreFin();
                 }
-                new FenetreFin(joueurGagnant, this.mfs.getCrono().getTemps(), this.mfs.getPionsMangesGagnant());
-
+                new FenetreFin(joueurGagnant, joueurPerdant, nbPionsSautesJ1, nbPionsSautesJ2, this.mfs.getCrono().getTemps());
             }
         }
 

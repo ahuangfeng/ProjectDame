@@ -39,7 +39,8 @@ public class FenetreFin extends JFrame {
     private String winnerOfTheGame;
     private String temps;
 
-    public FenetreFin(String winnerOfTheGame, String temps, int pionsManges) {
+    public FenetreFin(String winnerOfTheGame, String looserOfTheGame, int nbEatenJ1, int nbEatenJ2, String temps) {
+
         super("Fin de la Partie");
         //System.out.println(temps);
         etiquette = new JLabel("FELICITATIONS !!! ");
@@ -57,8 +58,8 @@ public class FenetreFin extends JFrame {
 
         //gagnant = new JLabel(this.maFenetreScore.vainqueur+" a remporte la partie ! ");
         gagnant = new JLabel(winnerOfTheGame + " a remporte la partie ! ");
-        statistique1 = new JLabel(winnerOfTheGame + " a mange " + pionsManges + " pions");
-        statistique2 = new JLabel("*Joueur*  a mange * * pions");
+        statistique1 = new JLabel(winnerOfTheGame + " a mange " + nbEatenJ2 + " pions");
+        statistique2 = new JLabel(looserOfTheGame + "  a mange " + nbEatenJ1 + " pions");
         this.temps = temps;
         JLabel tempsJoue = new JLabel(this.temps);
 
