@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 public class Plateau extends JPanel {
 
+	//instanciation
     private final int Taille = 11;
     private Case caseActive;
     private boolean tour0;
@@ -39,6 +40,7 @@ public class Plateau extends JPanel {
         } else if ((this.ini.getSelectedIndex() == 1) && (this.ini.getSaisieAge1() >= this.ini.getSaisieAge2())) {
             tour0 = false;
         }
+        //création du plateau de case
         setLayout(new GridLayout(this.Taille, this.Taille));
         for (int i = 0; i < this.Taille; i++) {
             for (int j = 0; j < this.Taille; j++) {
@@ -51,19 +53,22 @@ public class Plateau extends JPanel {
         }
     }
 
+	//permet d'ajouter une case et son ecouteur
     public void ajouterCase(int o) {
         Case case1 = new Case(o);
         case1.addMouseListener(new ListenerCase(case1, this));
         add(case1);
     }
-
+	
+	//permet de créer un pion et son ecouteur associé
     public Pion creerPion(int couleur, boolean monte) {
         Pion pion = new Pion(couleur, monte);
         //mfs = new maFenetreScore("hola","gllaaa");
         pion.addMouseListener(new ListenerPion(pion, this));
         return pion;
     }
-
+	
+	//initialise le plateau
     public void initialiser() {
         for (int i = 0; i < this.Taille * 4; i = i + 2) {
             getCase(i).add(creerPion(0, false));
@@ -72,11 +77,13 @@ public class Plateau extends JPanel {
         resetNbManges();
         //this.repaint();
     }
-
+	
+	//donne les coordonnees de la case
     public Case getCase(int i) {
         return (Case) getComponent(i);
     }
-
+	
+	//donne les coordonnees de la case
     public Case getCase(int i, int j) {
         //i=ligne,j=colonne
         return (Case) getComponent(j + i * Taille);
@@ -114,7 +121,8 @@ public class Plateau extends JPanel {
         }
         return res;
     }
-
+	
+	//test pour savoir si une case est occuppee parun pion
     public boolean testPresencePion(int i, int j) {
         boolean res = false;
         if (getCase(i, j).getComponentCount() != 0) {
@@ -183,11 +191,13 @@ public class Plateau extends JPanel {
         }
     }
 
+	//methodepour creer la dame
     public Dame creerDame(int couleur, boolean monte) {
         Dame nouvelleDame = new Dame(couleur, monte);
         return nouvelleDame;
     }
 
+	//methode qui gere les déplacement et les statistiques et le déroulement du jeu
     public void deplacer(Case case1) {
         //permet de placer le pion dans la case sélectionné
         //Création de la dame si le pion se place sur la dernière ligne
@@ -255,6 +265,7 @@ public class Plateau extends JPanel {
         this.tiro = !this.tiro;
     }
 
+	//donne les coordonnees ligne d'un case
     private int getLigne(Case case1) {
         int res = 0;
         for (int i = 0; i < Taille * Taille; i += 2) {
@@ -265,6 +276,7 @@ public class Plateau extends JPanel {
         return res;
     }
 
+	//donne les coordonnees colonne d'un case
     private int getColonne(Case case1) {
         int res = 0;
         for (int i = 0; i < Taille * Taille; i += 2) {
@@ -274,21 +286,24 @@ public class Plateau extends JPanel {
         }
         return res;
     }
-
+	//nombre de pions manges par le joueur 1
     public int getNbPionsSautesJ1() {
         System.out.println(nbPionsSautesJ1);
         return nbPionsSautesJ1;
     }
 
+	//nombre de pions manges par le joueur 2
     public int getNbPionsSautesJ2() {
         System.out.println(nbPionsSautesJ2);
         return nbPionsSautesJ2;
     }
 
+	//pour savoir qui doit jouer
     public boolean getTour() {
         return this.tour0;
     }
 
+	//remet a 0 les statistiques
     public void resetNbManges() {
         this.mfs.setPionsMangesJ1(0, 22);
         this.mfs.setPionsMangesJ2(0, 22);
