@@ -43,80 +43,83 @@ public class FenetreFin extends JFrame {
 
         super("Fin de la Partie");
         //System.out.println(temps);
-        etiquette = new JLabel("FELICITATIONS !!! ");
-        etiquette.setFont(new Font(Font.SERIF, Font.BOLD, 55));
-        etiquette.setForeground(Color.BLUE);
-        boutonRejouer = new JButton("Rejouer");
-        boutonNouvellePartie = new JButton("Nouvelle Partie");
-        quitter = new JButton("Quitter le jeu");
+        this.etiquette = new JLabel("FELICITATIONS !!! ");
+        this.etiquette.setFont(new Font(Font.SERIF, Font.BOLD, 55));
+        this.etiquette.setForeground(Color.BLUE);
+        this.boutonRejouer = new JButton("Rejouer");
+        this.boutonNouvellePartie = new JButton("Nouvelle Partie");
+        this.quitter = new JButton("Quitter le jeu");
 
         //instanciation des éléments constructifs de la fenetre
-        pBas = new JPanel(new GridLayout(3, 1));
-        pMilieu = new JPanel(new GridLayout(4, 1));
-        pHaut = new JPanel(new FlowLayout());
-        cadrePrincipal = new JPanel(new GridLayout(7, 1));
+        this.pBas = new JPanel(new GridLayout(3, 1));
+        this.pMilieu = new JPanel(new GridLayout(4, 1));
+        this.pHaut = new JPanel(new FlowLayout());
+        this.cadrePrincipal = new JPanel(new GridLayout(7, 1));
 
         //gagnant = new JLabel(this.maFenetreScore.vainqueur+" a remporte la partie ! ");
-        gagnant = new JLabel(looserOfTheGame + " a remporte la partie ! ");
-        statistique1 = new JLabel( looserOfTheGame+ " a mange " + nbEatenJ2 + " pions");
-        statistique2 = new JLabel(winnerOfTheGame + "  a mange " + nbEatenJ1 + " pions");
+        this.gagnant = new JLabel(looserOfTheGame + " a remporte la partie ! ");
+        this.gagnant.setFont(new Font(Font.SANS_SERIF, Font.ITALIC, 14));
+        this.statistique1 = new JLabel(looserOfTheGame + " a mange " + nbEatenJ2 + " pions");
+        this.statistique1.setFont(new Font(Font.DIALOG, Font.BOLD, 13));
+        this.statistique2 = new JLabel(winnerOfTheGame + "  a mange " + nbEatenJ1 + " pions");
+        this.statistique2.setFont(new Font(Font.DIALOG, Font.BOLD, 13));
         this.temps = temps;
         JLabel tempsJoue = new JLabel(this.temps);
 
         //création panneaux vides
-        videRejouer = new JPanel();
-        videNouvellePartie = new JPanel();
-        videQuitter = new JPanel();
-        videVainqueur = new JPanel();
-        videStatistique1 = new JPanel();
-        videStatistique2 = new JPanel();
+        this.videRejouer = new JPanel();
+        this.videNouvellePartie = new JPanel();
+        this.videQuitter = new JPanel();
+        this.videVainqueur = new JPanel();
+        this.videStatistique1 = new JPanel();
+        this.videStatistique2 = new JPanel();
         JPanel videStat3 = new JPanel(new FlowLayout());
 
-        vide = new JPanel();
-        vide1 = new JPanel();
-        vide2 = new JPanel();
-        vide3 = new JPanel();
+        this.vide = new JPanel();
+        this.vide1 = new JPanel();
+        this.vide2 = new JPanel();
+        this.vide3 = new JPanel();
 
         //création des trois boutons pour center le texte
         //videRejouer.add(boutonRejouer);
-        videNouvellePartie.add(boutonNouvellePartie);
-        videQuitter.add(quitter);
+        this.videNouvellePartie.add(boutonNouvellePartie);
+        this.videQuitter.add(quitter);
 
-        videVainqueur.add(gagnant);
-        videStatistique1.add(statistique1);
-        videStatistique2.add(statistique2);
+        this.videVainqueur.add(gagnant);
+        this.videStatistique1.add(statistique1);
+        this.videStatistique2.add(statistique2);
         videStat3.add(tempsJoue);
 
         // Création de pHaut
-        pHaut.add(etiquette);
+        this.pHaut.add(etiquette);
 
         // Création de pBas
-        pBas.add(videRejouer);
-        pBas.add(videNouvellePartie);
-        pBas.add(videQuitter);
+        this.pBas.add(videRejouer);
+        this.pBas.add(videNouvellePartie);
+        this.pBas.add(videQuitter);
 
         // Création de pMilieu
-        pMilieu.add(videVainqueur);
-        pMilieu.add(videStatistique1);
-        pMilieu.add(videStatistique2);
-        pMilieu.add(videStat3);
+        this.pMilieu.add(videVainqueur);
+        this.pMilieu.add(videStatistique1);
+        this.pMilieu.add(videStatistique2);
+        this.pMilieu.add(videStat3);
 
         // Création du cadre principal
-        cadrePrincipal.add(vide);
-        cadrePrincipal.add(pHaut);
-        cadrePrincipal.add(vide1);
-        cadrePrincipal.add(pMilieu);
-        cadrePrincipal.add(vide2);
-        cadrePrincipal.add(pBas);
-        cadrePrincipal.add(vide3);
+        this.cadrePrincipal.add(vide);
+        this.cadrePrincipal.add(pHaut);
+        this.cadrePrincipal.add(vide1);
+        this.cadrePrincipal.add(pMilieu);
+        this.cadrePrincipal.add(vide2);
+        this.cadrePrincipal.add(pBas);
+        this.cadrePrincipal.add(vide3);
 
-        EcouteurBtnClose = new EcouteurBoutonFerme(this);
-        EcouteurBtnNewPartie = new EcouteurBoutonNouvellePartie(this);
-        EcouteurBtnRejouer = new EcouteurBoutonRejouer(this);
+        this.EcouteurBtnClose = new EcouteurBoutonFerme(this);
+        this.EcouteurBtnNewPartie = new EcouteurBoutonNouvellePartie(this);
+        this.EcouteurBtnRejouer = new EcouteurBoutonRejouer(this);
 
-        quitter.addActionListener(EcouteurBtnClose);
-        boutonRejouer.addActionListener(EcouteurBtnRejouer);
-        boutonNouvellePartie.addActionListener(EcouteurBtnNewPartie);
+        this.quitter.addActionListener(EcouteurBtnClose);
+        this.boutonRejouer.addActionListener(EcouteurBtnRejouer);
+        this.boutonNouvellePartie.addActionListener(EcouteurBtnNewPartie);
 
         setContentPane(cadrePrincipal);
         setSize(700, 700);

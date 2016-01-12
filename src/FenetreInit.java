@@ -14,29 +14,50 @@ import java.awt.*;
 public class FenetreInit extends JFrame {
     //création des éléments constitutifs de la fenetre
 
-    private JLabel titre = new JLabel("JEU DE DAME");
-    private JLabel joueur1 = new JLabel("Joueur 1 ");
-    private JLabel joueur2 = new JLabel("Joueur 2 ");
-    private JLabel pseudo = new JLabel("Pseudo : ");
-    private JLabel pseudo2 = new JLabel("Pseudo : ");
-    private JLabel age1 = new JLabel("Age");
-    private JLabel age2 = new JLabel("Age");
-    private JTextField nom = new JTextField(5);
-    private JTextField nom2 = new JTextField(5);
-    private JTextField textAge1 = new JTextField(5);
-    private JTextField textAge2 = new JTextField(5);
+    private JLabel titre;
+    private JLabel joueur1;
+    private JLabel joueur2;
+    private JLabel pseudo;
+    private JLabel pseudo2;
+    private JLabel age1;
+    private JLabel age2;
+    private JTextField nom;
+    private JTextField nom2;
+    private JTextField textAge1;
+    private JTextField textAge2;
     private String[] options = {"Marron", "Blanc"};
-    private JComboBox liste = new JComboBox(options);
-    private JButton regles = new JButton("Regle du jeu");
-    private JButton commencer = new JButton("Commence le jeu");
-    private JLabel phrase = new JLabel("Info : le joueur le plus jeune commencera la partie ");
+    private JComboBox liste;
+    private JButton regles;
+    private JButton commencer;
+    private JLabel phrase;
 
-	//création des écouteurs
+    //création des écouteurs
     private EcouteurBoutonRegle ecouteurBtnRegle;
     private EcouteurBoutonCommencerJeu ecouteurBtnCommencerLeJeu;
 
     public FenetreInit() {
         super("Jeu de dame");
+
+        this.titre = new JLabel("JEU DE DAME");
+        this.titre.setFont(new Font(Font.SERIF, Font.ITALIC, 30));
+        this.joueur1 = new JLabel("Joueur 1 ");
+        this.joueur1.setFont(new Font(Font.DIALOG, Font.BOLD, 16));
+        this.joueur2 = new JLabel("Joueur 2 ");
+        this.joueur2.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 16));
+        this.pseudo = new JLabel("Pseudo : ");
+        this.pseudo2 = new JLabel("Pseudo : ");
+        this.age1 = new JLabel("Age");
+        this.age2 = new JLabel("Age");
+        this.nom = new JTextField(5);
+        this.nom2 = new JTextField(5);
+        this.textAge1 = new JTextField(5);
+        this.textAge2 = new JTextField(5);
+        this.liste = new JComboBox(options);
+        this.regles = new JButton("Regle du jeu");
+        this.commencer = new JButton("Commence le jeu");
+        this.phrase = new JLabel("Info : le joueur le plus jeune commencera la partie ");
+        this.phrase.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 12));
+
         ecouteurBtnRegle = new EcouteurBoutonRegle(this);
         regles.addActionListener(ecouteurBtnRegle);
         ecouteurBtnCommencerLeJeu = new EcouteurBoutonCommencerJeu(this);
@@ -85,8 +106,7 @@ public class FenetreInit extends JFrame {
 
     }
 
-	//methodes pour pouvoir se servir des informations saisie par l'utilisateur du programme
-	
+    //methodes pour pouvoir se servir des informations saisie par l'utilisateur du programme
     public String getSaisieNom1() {
         return (nom.getText());
     }
