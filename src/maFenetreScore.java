@@ -31,6 +31,8 @@ public class maFenetreScore extends JFrame {
     private JPanel PanelGlobalScore;
 
     private JButton btnFinDeJeu;
+    
+    //création des ecouteurs
     private EcouteurBoutonFinDeJeu ecFinJeu;
     public Plateau plat;
     private String turn;
@@ -65,6 +67,7 @@ public class maFenetreScore extends JFrame {
         this.temps = new Cronometre();
 
         nomJoueurUn = new JLabel("      " + this.j1);
+        
         //Statistiques pions mangés
         this.nbMangesJ1 = plat.getNbPionsSautesJ1();
         System.out.println(this.nbMangesJ1);
@@ -174,6 +177,7 @@ public class maFenetreScore extends JFrame {
         return this.plat;
     }
 
+	//pour remettre a zero les statistiques
     public void resetNbManges() {
         this.nbMangesJ1 = 0;
         this.nbRestantJ1 = 22;
@@ -186,6 +190,7 @@ public class maFenetreScore extends JFrame {
         this.nbMangesJ2 = nbSautesJ2;
     }
 
+	//pour savoir combien de pions a mangés le gagnant
     public int getPionsMangesGagnant() {
         int res;
         if (this.nbMangesJ1 > this.nbMangesJ2) {

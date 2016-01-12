@@ -31,6 +31,7 @@ public class FenetreInit extends JFrame {
     private JButton commencer = new JButton("Commence le jeu");
     private JLabel phrase = new JLabel("Info : le joueur le plus jeune commencera la partie ");
 
+	//création des écouteurs
     private EcouteurBoutonRegle ecouteurBtnRegle;
     private EcouteurBoutonCommencerJeu ecouteurBtnCommencerLeJeu;
 
@@ -84,6 +85,8 @@ public class FenetreInit extends JFrame {
 
     }
 
+	//methodes pour pouvoir se servir des informations saisie par l'utilisateur du programme
+	
     public String getSaisieNom1() {
         return (nom.getText());
     }
