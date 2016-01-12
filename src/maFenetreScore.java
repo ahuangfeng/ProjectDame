@@ -184,7 +184,7 @@ public class maFenetreScore extends JFrame {
         this.nbMangesJ2 = 0;
         this.nbRestantJ2 = 22;
     }
-
+        //methode pour changer les numero de pions sautes par les deux joueurs
     public void setDonnes(int nbSautesJ1, int nbSautesJ2) {
         this.nbMangesJ1 = nbSautesJ1;
         this.nbMangesJ2 = nbSautesJ2;

@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 public class Plateau extends JPanel {
 
-	//instanciation
+    //instanciation
     private final int Taille = 11;
     private Case caseActive;
     private boolean tour0;

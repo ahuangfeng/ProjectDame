@@ -37,7 +37,7 @@ public class FenetreInit extends JFrame {
 
     public FenetreInit() {
         super("Jeu de dame");
-
+        // initialitation des elements de la fenetre
         this.titre = new JLabel("JEU DE DAME");
         this.titre.setFont(new Font(Font.SERIF, Font.ITALIC, 30));
         this.joueur1 = new JLabel("Joueur 1 ");
